@@ -13,7 +13,9 @@ affiliations:
     name: Sea Mammal Research Unit, University of St Andrews
   - id: 2
     name: San Diego State University, CA
-date: December 2024
+date: last-modified
+#abstract-title: "Summary"
+#abstract: "this is the abstract which will be over several lines and will be over many lines and that should be fine #{{< pagebreak >}}"
 format:
   pdf:
     keep-tex: true
@@ -23,26 +25,52 @@ format:
       text: |
         \usepackage[noblocks]{authblk}
         \renewcommand*{\Authsep}{, }
-        \renewcommand*{\Authand}{, }
+        \renewcommand*{\Authand}{ and }
         \renewcommand*{\Authands}{, }
         \renewcommand\Affilfont{\small}
+#      file: |
+#        - summary.qmd
     toc: true
     number-sections: true
     colorlinks: true
     fig-cap-location: bottom
     tbl-cap-location: top    
+#    include-in-header: 
+#      text: |
+#        "some text to include in the header"
+    include-before-body:
+      text: |
+        \section{Summary}
+        In this tutorial, you'll learn how to export data from \href{https://www.pamguard.org}{PAMGuard}  to a \href{https://tethys.sdsu.edu}{Tethys database}  and to view the exported data both within PAMGuard and through the Tethys web interface.
 
+        \href{https://tethys.sdsu.edu}{Tethys} is a temporal-spatial database for metadata related to passive     acoustic studies. Unlike the PAMGuard databases, which hold a lot of detail about a single dataset, a Tethys database can hold summary data for many projects -- that can be every project for you as an individual, your lab, or for multiple labs across a larger organisation.
+
+        Tethys does not replace existing PAMGuard databases and binary storage system since it's not possible to get the level of detail PAMGuard uses during analysis into a single general database. However, the intent is that Tethys will contain enough detail for extensive meta-analysis across large temporal and spatial scales, eliminating (or at least minimising) the requirement for researchers to go back to the original PAMGuard data sets.
+
+        \textbf{Learning Outcomes}
+        In this tutorial you wil learn to:
+        \begin{enumerate}
+        \item Install Tethys and launch the Tethys Server
+        \item Add a Tethys module to PAMGuard and connect to the Tethys Server
+        \item Export data from PAMGuard to Tethys, including:
+        \begin{itemize}
+        \item Calibration data
+        \item Deployment data
+        \item Detections
+        \end{itemize}
+        \item View the exported data from within PAMGuard and using the Tethys Web client
+        \end{enumerate}
+        \newpage
 ---
 
 # Introduction
 
-In this tutorial, you'll learn how to export data from PAMGuard [@gillespie2024] to a Tethys database [@roch2024] and to view the exported data both within PAMGuard and through the Tethys web interface.
+In this tutorial, you'll learn how to export data from PAMGuard to a Tethys database and to view the exported data both within PAMGuard and through the Tethys web interface.
 
-Tethys (<https://tethys.sdsu.edu/>, [@roch2016]) is a temporal-spatial database for metadata related to passive acoustic studies. Unlike the PAMGuard databases, which hold a lot of detail about a single dataset, a Tethys database can hold summary data for many projects -- that can be every project for you as an individual, your lab, or for multiple labs across a larger organisation.
+\href{https://tethys.sdsu.edu}{Tethys} is a temporal-spatial database for metadata related to passive acoustic studies. Unlike the PAMGuard databases, which hold a lot of detail about a single dataset, a Tethys database can hold summary data for many projects -- that can be every project for you as an individual, your lab, or for multiple labs across a larger organisation.
 
 Tethys does not replace existing PAMGuard databases and binary storage system since it's not possible to get the level of detail PAMGuard uses during analysis into a single general database. However, the intent is that Tethys will contain enough detail for extensive meta-analysis across large temporal and spatial scales, eliminating (or at least minimising) the requirement for researchers to go back to the original PAMGuard data sets.
 
-You can carry out these exercises with any data you like, so long as you have it set up for looking at in the PAMGuard Viewer. We've provided a North Atlantic Right Whale dataset to get you going and the exercises will refer specifically to detectors and operations possible with this dataset. We recommend that you go through the exercises once with our data, then go through them again with your own.
 
 {{< pagebreak >}}
 # Glossary
@@ -62,6 +90,9 @@ You can carry out these exercises with any data you like, so long as you have it
 :::
 
 # Installation
+
+You can carry out these exercises with any data you like, so long as you have it set up for looking at in the PAMGuard Viewer. We've provided a North Atlantic Right Whale dataset to get you going and the exercises will refer specifically to detectors and operations possible with this dataset. We recommend that you go through the exercises once with our data, then go through them again with your own.
+
 
 ## Software
 
