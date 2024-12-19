@@ -1,0 +1,1 @@
+Old Word versions from DCLDE 2024 workshop. Use the quarto version in the Tethystutorial folder. 
