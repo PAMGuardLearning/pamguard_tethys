@@ -38,6 +38,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[lmargin=1.25in,rmargin=1.25in,tmargin=1in,bmargin=1in]{geometry}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -125,6 +126,8 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\usepackage{scrlayer-scrpage}
+\rohead{PAMGuard Tethys Tutorial V1.1}
 \usepackage[noblocks]{authblk}
 \renewcommand*{\Authsep}{, }
 \renewcommand*{\Authand}{ and }
@@ -210,21 +213,19 @@
 \author[2]{Marie Roch}
 
 \affil[1]{Sea Mammal Research Unit, University of St Andrews}
-\affil[2]{San Diego State University, CA}
+\affil[2]{Department of Computer Science, San Diego State University}
 
 
-\date{2024-12-18}
+\date{2024-12-19}
 \begin{document}
 \maketitle
 
-\section{Summary}
-In this tutorial, you'll learn how to export data from \href{https://www.pamguard.org}{PAMGuard}  to a \href{https://tethys.sdsu.edu}{Tethys database}  and to view the exported data both within PAMGuard and through the Tethys web interface.
+\centerline{\textbf{Tutorial Version 1.1}}
+\vspace{3cm}
 
-\href{https://tethys.sdsu.edu}{Tethys} is a temporal-spatial database for metadata related to passive     acoustic studies. Unlike the PAMGuard databases, which hold a lot of detail about a single dataset, a Tethys database can hold summary data for many projects -- that can be every project for you as an individual, your lab, or for multiple labs across a larger organisation.
 
-Tethys does not replace existing PAMGuard databases and binary storage system since it's not possible to get the level of detail PAMGuard uses during analysis into a single general database. However, the intent is that Tethys will contain enough detail for extensive meta-analysis across large temporal and spatial scales, eliminating (or at least minimising) the requirement for researchers to go back to the original PAMGuard data sets.
+\centerline{\textbf{Learning Outcomes}}
 
-\textbf{Learning Outcomes}
 In this tutorial you wil learn to:
 \begin{enumerate}
 \item Install Tethys and launch the Tethys Server
@@ -235,7 +236,7 @@ In this tutorial you wil learn to:
 \item Deployment data
 \item Detections
 \end{itemize}
-\item View the exported data from within PAMGuard and using the Tethys Web client
+\item View the exported data both from within PAMGuard and using the Tethys Web client
 \end{enumerate}
 \newpage
 
@@ -245,27 +246,6 @@ In this tutorial you wil learn to:
 \setcounter{tocdepth}{3}
 \tableofcontents
 }
-
-\section{Introduction}\label{introduction}
-
-In this tutorial, you'll learn how to export data from PAMGuard to a
-Tethys database and to view the exported data both within PAMGuard and
-through the Tethys web interface.
-
-\href{https://tethys.sdsu.edu}{Tethys} is a temporal-spatial database
-for metadata related to passive acoustic studies. Unlike the PAMGuard
-databases, which hold a lot of detail about a single dataset, a Tethys
-database can hold summary data for many projects -- that can be every
-project for you as an individual, your lab, or for multiple labs across
-a larger organisation.
-
-Tethys does not replace existing PAMGuard databases and binary storage
-system since it's not possible to get the level of detail PAMGuard uses
-during analysis into a single general database. However, the intent is
-that Tethys will contain enough detail for extensive meta-analysis
-across large temporal and spatial scales, eliminating (or at least
-minimising) the requirement for researchers to go back to the original
-PAMGuard data sets.
 
 \newpage{}
 
@@ -322,6 +302,35 @@ PAMGuard dataset. These can contain a lot more detail than the PAMGuard
 database, provide more rapid data access times, etc. \\
 \end{longtable}
 
+\section{Introduction}\label{introduction}
+
+In this tutorial, you'll learn how to export data from
+\href{https://www.pamguard.org}{PAMGuard} to a
+\href{https://tethys.sdsu.edu}{Tethys database} and to view the exported
+data both within PAMGuard and through the Tethys web interface.
+
+PAMGuard is widely used software for the Detection, Classification, and
+Localisation of animal sounds, particularly marine mammals. PAMGuard can
+run multiple state of the art algorithms, backed up by a powerful user
+interface, allowing the user to interact with the detection data.
+
+Tethys is a temporal-spatial database for metadata related to passive
+acoustic studies. Unlike the PAMGuard databases, which hold a lot of
+detail about a single dataset, a Tethys database can hold summary data
+for many projects -- that can be every project for you as an individual,
+your lab, or for multiple labs across a larger organisation.
+
+Both PAMGuard and Tethys are available for free under open source
+software licenses.
+
+Tethys does not replace existing PAMGuard databases and binary storage
+system since it's not possible to get the level of detail PAMGuard uses
+during analysis into a single general database. However, the intent is
+that Tethys will contain enough detail for extensive meta-analysis
+across large temporal and spatial scales, eliminating (or at least
+minimising) the requirement for researchers to go back to the original
+PAMGuard data sets.
+
 \section{Installation}\label{installation}
 
 You can carry out these exercises with any data you like, so long as you
@@ -333,26 +342,26 @@ data, then go through them again with your own.
 
 \subsection{Software}\label{software}
 
-\subsubsection{PAMGuard}\label{pamguard}
+\subsubsection{PAMGuard}\label{sec-installpamguard}
 
 This tutorial will work with
 \href{https://www.pamguard.org/downloadsurvey.html}{PAMGuard version
-2.02.14 or later}, and \href{https://zenodo.org/records/13626338}{Tethys
+2.02.15 or later}, and \href{https://zenodo.org/records/13626338}{Tethys
 version 3.1}.
 
-If you are running PAMGuard vesion 2.02.15 or earlier, you must enable
-Tethys in PAMGuard by specifyng the -smru option as a command line
-option (Figure~\ref{fig-smru}).
+If you are running PAMGuard version 2.02.15 or earlier, you must enable
+Tethys in PAMGuard by specifying the -smru option as a command line
+option (Figure~\ref{fig-smru}) when you install PAMGuard.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=11cm,height=\textheight,keepaspectratio]{./media/smruoption.png}
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{./media/smruoption.png}
 
 }
 
-\caption{\label{fig-smru}Setting the command line option during
+\caption{\label{fig-smru}Setting the -smru command line option during
 installation}
 
 \end{figure}%
@@ -360,34 +369,169 @@ installation}
 \subsubsection{Tethys}\label{tethys}
 
 Download \href{https://zenodo.org/records/13626338}{Tethys 3.1 from
-Zenodo}
+Zenodo}. Two databases are available, \textbf{demodb.zip} contains
+example output from other studies and will allow you to explore all
+Tethys functionality in full. The smaller \textbf{metadata.zip} contains
+only an empty database. We recommend that you use \textbf{demodb} for
+now, then switch to a blank database when you're ready to start serious
+work on your own data.
 
-\textbf{Marie - do you want to write instruction on starting Tethys or
-provide your preferred link to instructions}
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{media/tethysstructure.png}}
+
+}
+
+\caption{\label{fig-tethysstructure}Folder Structure of Tethys}
+
+\end{figure}%
+
+Unzip the database to a location of your choice. The demodb download is
+approximately 2 GB and it will require about 18 GB on your machine. The
+vast majority of the size is attributable to the content of the
+databases that are distributed with the installer.
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
+
+The unzip functionality that is bundled with Windows can be very slow,
+if you have a dedicated zip archive manager such as
+\href{https://www.win-rar.com}{WinRAR} or
+\href{https://www.7-zip.org/}{7Zip} we recommend that you use these as
+they are at least an order of magnitude faster.
+
+\end{tcolorbox}
+
+Tethys consists of a server program that manages the database, a set of
+client programs that can communicate with the server, documentation, and
+the database directory that will either be the demonstration database
+that contains sample data (demodb) or a blank database (metadata). The
+programs and data in the zip archive have the folder structure shown in
+Figure~\ref{fig-tethysstructure}. Take a look, particularly at
+\textbf{Documentation}.
+
+PAMGuard sends DCL data to Tethys in a format Tethys can understand
+directly. If you wish to use other sources, such as importing from
+spreadsheets or databases, additional software must be installed. See
+the installation chapter in the Tethys server guide for details.
+Additional software is also required if you wish the web client to
+export data in a hierarchical R data format.
+
+To start the Tethys Server, navigate to the folder where you installed
+the Tethys database and double click on the tethys.bat file. Some system
+administrators restrict this functionality, and if that does not work,
+you can open a command line shell and navigate (via the cd command) to
+Databases\textbackslash demodb. Type tethys.bat and press enter.
+
+The Tethys server is written in the Python programming language and you
+are likely to be prompted to allow Python to communicate over the
+network (Figure~\ref{fig-tethyswarning}). Tethys ``talks'' to client
+programs on port 9779 and this must be enabled before clients can
+communicate with Tethys. More information on the firewall is in the
+Tethys server manual.
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.4\linewidth,height=\textheight,keepaspectratio]{media/tethyswarning.png}
+
+}
+
+\caption{\label{fig-tethyswarning}Firewall notice when Tethys starts.
+Windows is asking permission to allow the database server to communicate
+over a network port. This is required for the Tethys server to
+communicate with PAMGuard as well as client tools such as the
+DataExplorer}
+
+\end{figure}%
+
+After approving the network access, you should see something similar to
+the following output:
+
+\begin{verbatim}
+[15/May/2024:11:02:51] Welcome to Tethys, 3.1 - Server starting...
+No server configuration file at ...\Tethys\ServerDefault.xml (not an error), using internal defaults
+Examining logs in ...\databases\demodb\db to verify that database is correct.
+Log processing started at 2024-05-15 11:02:51.362099
+Cache size set to 1.00 GB
+Log processing complete. started at: 2024-05-15 11:02:51.362099 elapsed 0 days 00:00:00.329252
+Checkpointing database ...\databases\demodb\db...  checkpoint complete
+Cache size set to 1.00 GB
+BSDDB environment initialized
+Starting DB XML in transactional mode
+Query cache: 128 GB at C:\Users\marie\AppData\Local\Temp\tethys-build\databases\demodb\diskcache, enabled=True
+Cannot start R, environment variable "R_HOME" is not set
+[15/May/2024:11:02:55] ENGINE Bus STARTING
+[15/May/2024:11:02:55] ENGINE Started monitor thread 'Autoreloader'.
+[15/May/2024:11:02:56] ENGINE Serving on http://0.0.0.0:9779
+[15/May/2024:11:02:56] ENGINE Bus STARTED
+[15/May/2024:11:02:57] Web interface at http://vaquita:9779/Client 
+[15/May/2024:11:02:57] R programming language interface unavailable
+\end{verbatim}
+
+Next, test that you can communicate with the server. The easiest way to
+do this is from a web browser. Type
+\href{http://localhost:9779/Client}{localhost:9779/Client} into your
+browser and the web client should load (Figure~\ref{fig-tethysclient}).
+
+\begin{figure}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{media/tethysclient.png}}
+
+}
+
+\caption{\label{fig-tethysclient}The web client accessible at
+\url{http://localhost:9779/Client}}
+
+\end{figure}%
+
+Press \textbf{Deployments} and you should see the locations of the
+instrument deployments stored in the demonstration database after a
+short delay. You may also want to try the following additional steps:
+
+\begin{itemize}
+\tightlist
+\item
+  If you wish to save from the web client in R's data.tree format
+  (requires an R library available from CRAN), you will need to install
+  R on your machine and let Tethys know where to find it. See directions
+  in the Tethys manual (Documentation/Tethys.pdf), section ``R
+  installation for data export'' (page 9 as of this writing).
+\item
+  If you are a Matlab user, directions on setting it up are in the
+  Matlab Cookbook in the documentation folder.
+\item
+  We recommend that you verify that the data explorer is working, follow
+  the instructions in Documentation/DataExplorerManual.pdf to start it.
+\end{itemize}
 
 \subsubsection{SQLite Studio}\label{sqlite-studio}
 
 It is not essential to download SQLite Studio, but if you want to easily
 look inside the PAMGuard database you can
-\href{https://sqlitestudio.pl/}{download it here}. Other viewers are
-available, but this is the one we mostly use.
+\href{https://sqlitestudio.pl/}{download it here}. Other SQLite viewers
+are available, but this is the one we mostly use.
 
 \subsection{Data}\label{data}
 
-The dataset we'll be working with initially is seven days of right whale
-data collected in Cape Cod Bay in 2008 with a Cornell MARU device. These
-data were prepared for the 2013 DCLDE workshop held in St Andrews. To
-save time, the data have already been processed using two different
-right whale detectors: The Deep Learning detector
-(\citeproc{ref-shiu2020}{Shiu et al. 2020}) and the older right whale
-edge detector (\citeproc{ref-gillespie2004}{Gillespie 2004}). We've also
-runsome noise measurements on the data. Output from the detectors is in
-both the
+The dataset we'll be working with is seven days of continuous recordings
+collected in Cape Cod Bay in 2008 with a Cornell MARU device. These data
+were prepared for the 2013 DCLDE workshop held in St Andrews. The data
+have already been processed using two different right whale detectors:
+the Deep Learning detector (\citeproc{ref-shiu2020}{Shiu et al. 2020})
+and the older right whale edge detector
+(\citeproc{ref-gillespie2004}{Gillespie 2004}). We've also run some
+noise measurements on the data. Output from the detectors is in both the
 \href{https://www.pamguard.org/olhelp/utilities/generalDatabaseHelp/docs/database_database.html}{PAMGuard
 database} and set of
 \href{https://www.pamguard.org/olhelp/utilities/BinaryStore/docs/binarystore_overview.html}{binary
-files} which you can download the data here. Unzip the files into a
-folder of your choice.
+files} which you can
+\href{https://github.com/PAMGuardLearning/pamguard_tethys/releases/download/V1.1/NARWExampleDataset.zip}{download
+here}. Unzip the files into a folder of your choice.
 
 Having the wav files is not essential for the completion of the
 exercises, but it's good to have them, or at least to know where they
@@ -406,17 +550,17 @@ Mode}.
 To get started, launch PAMGuard viewer mode, when it asks for a
 database, navigate to the NARWExample.sqlite3 database that you
 downloaded. When you launch the viewer, it will ask for the location of
-the PAMGuard database (Figure~\ref{fig-launch}) and the PAMGuard binary
-store (Figure~\ref{fig-binaryselect}). By default, it will probably look
-for these files where I had them stored on my computer and you'll have
-them somewhere else, so navigate carefully to the correct database file
-and binary store.
+the PAMGuard database (Figure~\ref{fig-launch}) and then the PAMGuard
+binary store (Figure~\ref{fig-binaryselect}). By default, it will
+probably look for these files where I had them stored on my computer and
+you'll have them somewhere else, so navigate carefully to the correct
+database file and binary store folder.
 
 \begin{figure}
 
 \centering{
 
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{./media/launch.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{./media/launch.png}
 
 }
 
@@ -428,7 +572,7 @@ and binary store.
 
 \centering{
 
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{./media/binaryselect.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{./media/binaryselect.png}
 
 }
 
@@ -436,12 +580,13 @@ and binary store.
 
 \end{figure}%
 
-When asked for the binary file folder, navigate to where you stored the
-binary file data you downloaded and select that folder:
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
 
 Did you know that if you right click on the database file, you'll get an
 option to open the database in the PAMGuard Viewer from Windows Explorer
 (Figure~\ref{fig-dbmenu}).
+
+\end{tcolorbox}
 
 \begin{figure}
 
@@ -464,7 +609,7 @@ this point isn't essential.
 
 \centering{
 
-\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{./media/wavfiles.png}
+\includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{./media/wavfiles.png}
 
 }
 
@@ -489,7 +634,7 @@ shown in (\citeproc{ref-shiu2020}{Shiu et al. 2020}).
 }
 
 \caption{\label{fig-spectrogram}Viewing data in the PAMGuard
-spectrogram. The green bands are detections from the Deep LEarning
+spectrogram. The green bands are detections from the Deep Learning
 detector. The smaller marks are from the Right Whale Edge Detector}
 
 \end{figure}%
@@ -498,12 +643,12 @@ detector. The smaller marks are from the Right Whale Edge Detector}
 
 To communicate with Tethys, you'll first have to add the PAMGuard Tethys
 module. This is available in the File / Add Modules / Utilities menu. If
-you can't find it, then you've an old version of PAMGuard and not the
-one we need, or you've not followed the PAMGuard installation
-instructions properly and set the -smru option
-((\citeproc{ref-fig}{\textbf{fig?}})--smru).
+you can't find it, then you've an old version of PAMGuard, or you've not
+followed the PAMGuard installation instructions in
+Section~\ref{sec-installpamguard} properly and set the -smru option
+(Figure~\ref{fig-smru}).
 
-First time you run you may get a security warning
+The first time you run you may get a security warning
 (Figure~\ref{fig-firewall}). Say OK to everything. If you don't have
 admin rights, you may have difficulties here !
 
@@ -511,7 +656,7 @@ admin rights, you may have difficulties here !
 
 \centering{
 
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{./media/firewall.png}
+\includegraphics[width=0.6\linewidth,height=\textheight,keepaspectratio]{./media/firewall.png}
 
 }
 
@@ -521,9 +666,11 @@ first time you run Tethys}
 \end{figure}%
 
 Once the Tethys module is added, go to the Tethys tab, the PAMGuard
-display should look like (Figure~\ref{fig-tethys1}).
+display should look like (Figure~\ref{fig-tethys1ok}).
 
 \begin{figure}
+
+\centering{
 
 \centering{
 
@@ -531,17 +678,32 @@ display should look like (Figure~\ref{fig-tethys1}).
 
 }
 
-\caption{\label{fig-tethys1}The Tethys tab panel, currently showing an
-error since the Tethys server has not yet been started}
+\subcaption{\label{fig-tethys1ok}The Tethys tab panel with a successful
+server connection}
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{./media/tethys1error.png}}
+
+}
+
+\subcaption{\label{fig-tethys1error}The tethys panel in error state when
+it is unable to connect to the Tethys server}
+
+}
+
+\caption{\label{fig-tethys1}The Tethys Tab Panel in PAMGuard. This is
+where you interract with Tethys to export and view data}
 
 \end{figure}%
 
 If the top area of the display is coloured orange
-(Figure~\ref{fig-tethys1}), then it means the Tethys server is not
+(Figure~\ref{fig-tethys1error}), then it means the Tethys server is not
 running properly or that PAMGuard is failing to communicate with it.
-Start the server according to the instructions in the installation
-document. Once the server is running, the PAMGuard display will be a
-normal grey colour. If you can't get this to work, ask for help!
+Start the server according to the instructions above and read the
+installation document. Once the server is running, the PAMGuard display
+will be a normal grey colour. If you can't get this to work, ask for
+help.
 
 \subsection{Project Information}\label{project-information}
 
@@ -549,9 +711,14 @@ A key goal of Tethys is accurate recording of project metadata. This
 includes obvious information such as hydrophone calibrations and
 locations of data, but also includes more nuanced information such as
 the motivation for the project deployment and who the responsible person
-for the data is. Additional project information data has been added to
-PAMGuard in support of Tethys integration and should now be filled in.
-This information is available in the Settings / Project Information
+for the data is. For example, many density estimation methods require
+that data are sampled at random locations in space (either through
+random instrument deployment or track-line layout), so if the data were
+deliberately targeting known hot-spots, they may not be suitable for
+density estimation, and users of the Tethys database will need to know
+this. Additional project information data entry fields have been added
+to PAMGuard in support of Tethys integration and should now be filled
+in. This information is available in the Settings / Project Information
 menu, or can be filled out as you export data to Tethys.
 
 The project information follows the schema laid out in
@@ -568,7 +735,7 @@ your mind.
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{./media/project.png}}
+\includegraphics[width=0.98\linewidth,height=\textheight,keepaspectratio]{./media/project.png}
 
 }
 
@@ -580,7 +747,7 @@ your mind.
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{./media/projdescription.png}}
+\includegraphics[width=0.98\linewidth,height=\textheight,keepaspectratio]{./media/projdescription.png}
 
 }
 
@@ -598,7 +765,7 @@ collected audio data''
 
 Obviously, for `real' data, you'd enter a lot more detail at this point.
 
-\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, rightrule=.15mm, opacitybacktitle=0.6, breakable, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, bottomtitle=1mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, arc=.35mm, bottomrule=.15mm, left=2mm, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
 
 At this point in the software development, it's a really good time to
 make suggestions. Do you want the boxes for project information to be
@@ -618,7 +785,7 @@ required by Tethys and, along with the project name, are used to link
 Tethys data to PAMGuard data whenever the PAMGuard configuration is
 opened with the Tethys database module in the future. These are part of
 PAMGuard whether you use Tethys or not, and you're encouraged to fill
-them to keep a record of what you've been doing.
+them in to keep a record of what you've been doing.
 
 \begin{figure}
 
@@ -628,8 +795,7 @@ them to keep a record of what you've been doing.
 
 }
 
-\caption{\label{fig-array}A screenshot of a computer Description
-automatically generated}
+\caption{\label{fig-array}The PAMGuard Array Manager dialog}
 
 \end{figure}%
 
@@ -652,7 +818,7 @@ or three dimensions.
 These should be exported in order so that the Deployments can reference
 the Calibrations and the Detections can reference the Deployments, etc.
 
-\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, rightrule=.15mm, opacitybacktitle=0.6, breakable, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, bottomtitle=1mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, arc=.35mm, bottomrule=.15mm, left=2mm, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
 
 What types of calibration data do you have for your own studies ? Will
 it fit into these data fields or do you require something different ?
@@ -667,13 +833,14 @@ the serial number of the device used in the calibration. (Hopefully, the
 data owners do know that, but we've not had time to dig that information
 out). Going forwards, these are all things you should be noting down for
 every one of your projects if you want the data to be useful in years to
-come.
+come. Honesty is essential though: if the system was not calibrated,
+then say so !
 
 \subsection{Export the Calibrations}\label{export-the-calibrations}
 
 (in this case there is only one hydrophone, so it's a `calibration')
 fill in as much information as you can in the dialog panels
-(Figure~\ref{fig-cal}). You'll get either a popup windows telling you
+(Figure~\ref{fig-cal}). You'll get either a popup window telling you
 that the export has succeeded, or an error message.
 
 \begin{figure}
@@ -706,7 +873,7 @@ that the export has succeeded, or an error message.
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, rightrule=.15mm, opacitybacktitle=0.6, breakable, colframe=quarto-callout-tip-color-frame, coltitle=black, toptitle=1mm, bottomtitle=1mm, colback=white, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{See what you've exported so far}, arc=.35mm, bottomrule=.15mm, left=2mm, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-tip-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{See what you've exported so far}, opacitybacktitle=0.6, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
 
 If you want to, at this point, skip to Section~\ref{sec-viewing} below
 and look at what you've exported to Tethys using either the Tethys
@@ -716,21 +883,21 @@ Client or the internal PAMGuard tools.
 
 \subsection{Export the Deployments}\label{export-the-deployments}
 
-Here, you'll get a chance to review the project information that you
+Here you'll get a chance to review the project information that you
 entered earlier. This is critical information since any future analysis
 will probably want to know the motivations behind the data collection.
 For example were instruments laid out at random as part of a density
-estimation study, or were you targeting an area known as a whale hotspot
-anyway, in order to maximise detections for some other purpose.
+estimation study, or were you targeting an area known as a whale
+hot-spot anyway.
 
 Data Locations: This will default to the folders on your computer that
-currently hold the sound files, the database and the binary store. If
-you can, change these to where permanent copes of the data are stored,
-e.g.~the server address or doi for the raw audio files you've used as in
+currently hold the sound files, the database, and the binary store. If
+you can, change these to where permanent copies of the data are stored,
+e.g.~the server address or DOI for the raw audio files you've used as in
 Figure~\ref{fig-exportlocs}, (or perhaps for your data it's the name of
-a cupboard full of hard drives in a dusty basemanet?). People may want
-to find these data long after the computer you're currently using has
-been recycled!
+a cupboard full of hard drives in a dusty basement?). People may want to
+find these data long after the computer you're currently using has been
+recycled.
 
 \begin{figure}
 
@@ -792,16 +959,12 @@ Thinking of odontocetes raises another issue: Many odontocetes make
 several types of call, for instance clicks, whistles, and burst pulse
 sounds and you'll probably want to distinguish between them in your
 database. Therefore, Tethys detections have both a compulsory ITIS
-species code AND an optional call type.
+species code AND an optional \emph{call type}.
 
 Fortunately, you don't need to learn these species coded by heart or go
 to the ITIS website to look them up (it's a bit slow) since they are all
 already in the Tethys database you're working with and PAMGuard can
 search for them.
-
-In the lower left panel of the PAMGuard display, titled ``PAMGuard data
-blocks'', right click on one of the rows in the table and select
-``Species info'' to open the species code dialog.
 
 Different PAMGuard detectors have different numbers of species defined.
 For instance, the click detector has a `default' species that clicks
@@ -809,10 +972,14 @@ will be assigned to, which you'll probably set to Odontocete, but if
 you're familiar with the click detector, you'll know that you can define
 any number of species classifiers which may be for different
 anthropogenic sounds as well as for different species of marine mammal.
-For the DL classifier we're working with here, there are only two
-classes: not right whales and right whales. The detector is designed to
-only detect up-calls, so your species dialog should look similar to
-Figure~\ref{fig-speciescodes}.
+
+In the lower left panel of the PAMGuard display, titled ``PAMGuard data
+blocks'', right click on the first row in the table ``Deep Learning
+Classifier, DL Classifier Data'' and select ``Species info \ldots{}'' to
+open the species code dialog. For the DL classifier, there are only two
+classes: not right whales (or ``Noise'') and Right Whales. The detector
+is designed to only detect up-calls, so your species dialog should look
+similar to Figure~\ref{fig-speciescodes}.
 
 \begin{figure}
 
@@ -825,8 +992,8 @@ Figure~\ref{fig-speciescodes}.
 \caption{\label{fig-speciescodes}PAMGuard dialog for setting up ITIS
 species codes. Some PAMGuard modules may only have a single species,
 others, such as output from click and whistle classifiers may have many
-set by the user. Each internal species name within PAMGuard must be
-associated with an ITIS code}
+different species set by the user. Each internal species name within
+PAMGuard must be associated with an ITIS code}
 
 \end{figure}%
 
@@ -848,7 +1015,7 @@ there were three). Select the one you want and press OK.
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, rightrule=.15mm, opacitybacktitle=0.6, breakable, colframe=quarto-callout-note-color-frame, coltitle=black, toptitle=1mm, bottomtitle=1mm, colback=white, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, arc=.35mm, bottomrule=.15mm, left=2mm, leftrule=.75mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0]
+\begin{tcolorbox}[enhanced jigsaw, breakable, colbacktitle=quarto-callout-note-color!10!white, colback=white, left=2mm, arc=.35mm, leftrule=.75mm, bottomtitle=1mm, bottomrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, opacitybacktitle=0.6, colframe=quarto-callout-note-color-frame, toptitle=1mm, toprule=.15mm, opacityback=0, coltitle=black, rightrule=.15mm, titlerule=0mm]
 
 Putting these codes into multiple similar projects can get a bit
 tiresome. It's not possible to make a ``standard'' translation between
@@ -863,6 +1030,18 @@ translations between your own projects more efficiently.
 
 \begin{figure}
 
+\begin{minipage}{0.33\linewidth}
+
+\centering{
+
+\includegraphics[width=0.99\linewidth,height=\textheight,keepaspectratio]{./media/export1.png}
+
+}
+
+\subcaption{\label{fig-export1}Automatic Information}
+
+\end{minipage}%
+%
 \begin{minipage}{0.33\linewidth}
 
 \centering{
@@ -886,7 +1065,7 @@ translations between your own projects more efficiently.
 \subcaption{\label{fig-datasel}Data Selection}
 
 \end{minipage}%
-%
+\newline
 \begin{minipage}{0.33\linewidth}
 
 \centering{
@@ -898,7 +1077,7 @@ translations between your own projects more efficiently.
 \subcaption{\label{fig-export3}Details about the data}
 
 \end{minipage}%
-\newline
+%
 \begin{minipage}{0.33\linewidth}
 
 \centering{
@@ -933,30 +1112,32 @@ by pressing the ``Export \ldots{}'' button.
 
 Again, this will take you through several pages of a ``Wizard'', as
 shown in Figure~\ref{fig-export} where you'll enter more information.
-The first page is filled in automatically with information about the
-detector and the PAMGuard version you're running.
+The first page (Figure~\ref{fig-export1}) is filled in automatically
+with information about the detector and the PAMGuard version you're
+running.
 
 The second page, Figure~\ref{fig-export2} is much more interesting,
 where you'll chose whether you export Detections, Localizations, or
 both. If you're doing both, it's a good idea to do them at the same time
 so that the Localizations document can easily cross reference to the
-Detections. Note that these data don't have any localizations, so that
-options is not available. You'll also select the \textbf{Granularity}
-which can be ``Call'', ``Binned'', or ``Encounter''.
+Detections. (Note that these data don't have any localizations, so that
+options is not available.) You'll also select the \textbf{Granularity}
+which can be ``Call'', ``Binned'', or ``Encounter''. Note that if you're
+exporting localizations, then only ``Call'' granulatity is allowed.
 
 \textbf{``Call''}: If you select call, then every single call in your
 dataset will be exported to Tethys. This is probably OK for baleen
-whales, where data rates are not too low, but we'd advise against trying
-to export too many millions of clicks from an odontocete dataset.
+whales, where data rates are not too high, but we'd advise against
+trying to export too many millions of clicks from an odontocete dataset.
 
 \textbf{``Binned''}: This exports counts of data in fixed time intervals
-of your choosing which could be seconds or days. If you like C-POD
+of your choosing which could be seconds or days. If you like C-POD like
 porpoise positive minutes, this is the option for you. For data with a
 high call rate it's certainly a good way of getting a summary of your
 detections into Tethys without overloading it. Note that if more than
 one species (see the species codes section above) is present within a
 time interval, then an entry will be made in the database for each
-different species.
+different species for each time bin.
 
 \textbf{``Encounter''}: This option searches for groups of sounds close
 together in time and saves a record with the start and end time of the
@@ -970,22 +1151,22 @@ detected on each one. It's your data and it's up to you.
 
 \textbf{Data Selection filters}
 
-Some PAMGuard outputs (not all) have a data selection filter for the
-deep learning classifier. These are used by multiple PAMGuard components
-and are generally quite bespoke for each detector. For example, the Deep
-Learning data selector (Figure~\ref{fig-datasel}) has been set to only
-export data with a score of 0.8 or more, which is a subset of the data
-since the detector was set to save detections with a score of 0.4 or
+Some PAMGuard outputs (not all) have a data selection filter. These are
+used by multiple PAMGuard components and are generally quite bespoke for
+each detector. For example, in this example, the Deep Learning data
+selector (Figure~\ref{fig-datasel}) has been set to only export data
+with a score of 0.8 or more, which is a subset of the data since the
+detector was set to save detections with a score of 0.4 or more.
 
-The data selector in click detector allows you to select by click type
-(if you're using click classifier) and whether clicks are assigned to a
-click train. The click data selector is used on various displays and
-also to filter input to the click train detector. The right whale edge
-detector allows you to select by the `score' of the detection. The DL
-right whale detector does not yet have a data selector, but I may add
-one, whereby you can also select by score. If there is a data selector,
-then information about it will be shown at the bottom of the granularity
-page.
+The data selector in the click detector allows you to select by click
+type (if you're using a click classifier) and whether clicks are
+assigned to a click train. The click data selector is used on various
+displays and also to filter input to the click train detector.
+Similarly, the right whale edge detector allows you to select by the
+`score' of the detection, which is on a scale of 1 (nothing like a right
+whale) to 11 (very right whale like). If there is a data selector, then
+information about it will be shown at the bottom of the granularity page
+and is also written to Tethys as part of the algorithm description.
 
 \textbf{Detections information} (more abstracts and stuff)
 Figure~\ref{fig-export3}
@@ -994,25 +1175,27 @@ This again ? Didn't you enter this for the Deployment document you
 created ? Yes, but it's important since the motivations behind your
 analysis have to be captured separately from the motivations behind the
 overall study. For example, the deployment may have been to survey all
-baleen whale species over a period of months, but the analysis may have
-only concentrated on a single species. Think about what someone trying
-to use these data after you've retired or moved to another job may need
-to know and enter it here.
+baleen whale species over a period of months using a randomized
+instrument layout suitable for density estimation, but the analysis may
+have only concentrated on a single species on calm weather days when
+boat surveys had already confirmed that animals were present. Think
+about what someone trying to use these data may need to know and enter
+it here.
 
 \textbf{Algorithm Parameters} Figure~\ref{fig-export4}
 
-Here you can capture all the information about the processing that took
-place in PAMGuard. It will be written to the top of each Detections
-document in xml format. The options are reasonably self explanatory: for
-instance for the right whale edge detector, if you select `Full Process
-Chain', you'll get all of the settings not just of the detector, but the
-FFT module feeding it, and the acquisition module feeding the FFT (and a
-decimator or any other modules upstream of the detector). The easiest
-way to understand this is to generate some outputs and take a look at
-what's in the XML. Generally, we'd recommend outputting the ``Full
-Process Chain''. It's a bit verbose, but does give a complete record of
-how PAMGuard was set up for processing the data -- which is one of the
-key goals of Tethys.
+Here you can select the information about the processing that took place
+in PAMGuard that will be exported to Tethys. It will be written to the
+top of each Detections document in xml format. The options are
+reasonably self explanatory: for instance for the right whale edge
+detector, if you select `Full Process Chain', you'll get all of the
+settings not just of the detector, but the FFT module feeding it, and
+the acquisition module feeding the FFT (and a decimator or any other
+modules upstream of the detector). The easiest way to understand this is
+to generate some outputs and take a look at what's in the XML.
+Generally, we'd recommend outputting the ``Full Process Chain''. It's a
+bit verbose, but does give a complete record of how PAMGuard was set up
+for processing the data -- which is one of the key goals of Tethys.
 
 \textbf{Export the Data} Figure~\ref{fig-export5}
 
@@ -1037,9 +1220,12 @@ By far the most versatile way to view data is to use the Web based
 client developed by Marie Roch. You'll have seen instructions on how to
 launch this with the Tethys installation instructions. To make life
 easy, instead of typing `localhost:9779/Client' into your web browser,
-you can just hit the `Open Client' button at the top of the display.
+you can just hit the `Open Client' button at the top of the PAMGuard
+display.
 
-\subsection{List of Documents}\label{list-of-documents}
+\subsection{viewing in PAMGuard}\label{viewing-in-pamguard}
+
+\subsubsection{List of Documents}\label{list-of-documents}
 
 To the right of the `Open Client' button, there is a small drop down
 arrow. This will show a menu that takes you to lists of Tethys documents
@@ -1047,14 +1233,14 @@ arrow. This will show a menu that takes you to lists of Tethys documents
 in the web browser, or within PAMGuard. Try both, using the `Show in
 PAMGuard' option to switch between browser view and PAMGuard view.
 
-\subsection{View a Single Document}\label{view-a-single-document}
+\subsubsection{View a Single Document}\label{view-a-single-document}
 
 To check the output of a single document, the easiest thing to do is to
 simply right click on it in the PAMGuard display and select `Display
 document \ldots{}' and a window will appear with the XML text of the
 document.
 
-\subsubsection{Deleting Data}\label{deleting-data}
+\subsection{Deleting Data}\label{deleting-data}
 
 We all make mistakes (Well, I do!). The displays in PAMGuard will
 generally show a pop-up menu with a delete option which will remove any
@@ -1065,7 +1251,8 @@ documents from the database.
 Similarly, there is an option to save individual documents as XML text
 documents.
 
-\section{When things go wrong}\label{when-things-go-wrong}
+\section{Error Reporting and
+Feedback}\label{error-reporting-and-feedback}
 
 This is new software, hot out of the mines, so expect a few teething
 problems. We really value feedback and information on errors since
@@ -1085,55 +1272,28 @@ C:\textbackslash Users\textbackslash dg50\textbackslash Pamguard\textbackslash P
 but there is a menu item `open temp document folder' at the bottom of
 the documents menu (the one next to the `Open client' button) and also
 in the Settings / Tethys menu. If you can attach a copy of the document
-that caused an error to an email to us, then we'll be able to fix it.
-Finally, if you've not found it before, PAMGuard logs the terminal
-output in a set of files in the user/Pamguard folder (mine is
+that caused an error to an email to us, then we'll be able to understand
+the error and hopefully fix it. Finally, if you've not found it before,
+PAMGuard logs the terminal output in a set of files in the user/Pamguard
+folder (mine is
 C:\textbackslash Users\textbackslash dg50\textbackslash Pamguard). You
 can get to this from the main PAMGuard help menu. The files may look as
 though they are full of total garbage, but it's meaningful to us and can
 help us to debug any problems effectively and efficiently.
 
-\section{What's Next ?}\label{whats-next}
+At time of writing (late 2024) there is still time to influence the
+final Tethys interface in PAMGuard, so we welcome your feedback. Please
+send any comments or suggestions to
+\href{mailto:pamguard@pamguard.org}{pamguard@st-andrews.ac.uk}.
 
-There are a couple of things that we've not yet included in the PAMGuard
-Tethys interface.
+\section{Acknowlegements}\label{acknowlegements}
 
-\subsection{Localisation Data}\label{localisation-data}
+Funding for this work was provided by the United States
+\href{https://www.boem.gov/}{Bureau of Ocean Energy Management} under
+contract 140M0122C0006 (University of Saint Andrews) and Cooperative
+Agreement M22AC00019-00 (San Diego State University).
 
-Tethys stores Localisations separately to Detections. We've spent a lot
-of time in recent weeks discussing exactly what to store for each type
-of localisation and are ready to start programming this into both Tethys
-and PAMGuard. For the user, the export of Localisations will look very
-similar to that of Detections (and may even be integrated into the same
-export dialog). Anyone interested in discussing this should do so during
-the meeting. Test datasets to develop code on are always welcome!
-
-\subsection{Track Survey Effort}\label{track-survey-effort}
-
-PAMGuard has never had a great way of handling trackline data. Yes, it's
-good at storing GPS data, but doesn't have any infrastructure to say
-``This bit of track is transect number 1'', ``This bit is off-effort'',
-etc. Several users have come up with ad-hoc solutions to this problem,
-for instance using the PAMGuard Logger Forms, or even running the old
-Logger software in parallel. We'll be developing methods to try to
-standardise this in PAMGuard and welcome example datasets or comments on
-how you might like to do this.
-
-\subsection{Annotation Effort}\label{annotation-effort}
-
-A critical component of the Detections documents is the ``Effort'' that
-went into creating the detections. For the automatic detectors,
-gathering this information is easy, since the times that the detectors
-ran is already in the PAMGuard dataset. However, PAMGuard also allows
-for human annotation in several of its modules which includes the
-assignment of clicks to click trains and marking out sounds on the
-spectrogram. If you've used it carefully, there is an annotation effort
-module in PAMGuard, but a) that's quite new so a lot of data have been
-annotated without it and b) humans are human and don't always fill in
-the correct fields when they start work. Finding a system where we can
-correctly record annotation effort for the different detectors is
-another thing we're working on and will incorporate into future
-releases.
+\href{https://www.boem.gov/}{\includegraphics[width=0.33\linewidth,height=\textheight,keepaspectratio]{media/BOEM_Logo_Web_Header.png}}
 
 \section{References}\label{references}
 
