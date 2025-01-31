@@ -121,6 +121,8 @@ Download [Tethys 3.1 from Zenodo](https://zenodo.org/records/13626338). Two data
 Unzip the database to a location of your choice. The demodb download is approximately 2 GB and it will require about 18 GB on your machine. The vast majority of the size is attributable to the content of the databases that are distributed with the installer.
 
 ::: {.callout-tip appearance="default"}
+# Quicker unzipping
+
 The unzip functionality that is bundled with Windows can be very slow, if you have a dedicated zip archive manager such as [WinRAR](https://www.win-rar.com) or [7Zip](https://www.7-zip.org/) we recommend that you use these as they are at least an order of magnitude faster.
 :::
 
@@ -188,6 +190,8 @@ To get started, launch PAMGuard viewer mode, when it asks for a database, naviga
 ![Selecting the binary storage location](./media/binaryselect.png){#fig-binaryselect width="60%"}
 
 ::: {.callout-tip appearance="default"}
+# Windows Explorer quick access
+
 Did you know that if you right click on the database file, you'll get an option to open the database in the PAMGuard Viewer from Windows Explorer (@fig-dbmenu).
 :::
 
@@ -240,6 +244,7 @@ In the 'Deployment' tab, set it to "Use start and end times of collected audio d
 Obviously, for 'real' data, you'd enter a lot more detail at this point.
 
 ::: {.callout-tip appearance="default" title="No promises, but there is no harm in asking ..."}
+
 At this point in the software development, it's a really good time to make suggestions. Do you want the boxes for project information to be bigger ? How much text do you want to put into them ? Should you be copying in your entire cruise research protocol ?
 :::
 
@@ -264,6 +269,7 @@ There are four main types of Tethys document:
 These should be exported in order so that the Deployments can reference the Calibrations and the Detections can reference the Deployments, etc.
 
 ::: {.callout-tip appearance="default" title="No promises, but there is no harm in asking ..."}
+
 What types of calibration data do you have for your own studies ? Will it fit into these data fields or do you require something different ?
 :::
 
@@ -281,7 +287,9 @@ For each type of data, there is an export Wizard. Ideally, you should know what 
 Calibration information dialog
 :::
 
-::: {.callout-tip appearance="default" title="See what you've exported so far"}
+::: .callout-tip
+# See what you've exported so far
+
 If you want to, at this point, skip to @sec-viewing below and look at what you've exported to Tethys using either the Tethys Client or the internal PAMGuard tools.
 :::
 
@@ -291,12 +299,14 @@ Here you'll get a chance to review the project information that you entered earl
 
 Data Locations: This will default to the folders on your computer that currently hold the sound files, the database, and the binary store. If you can, change these to where permanent copies of the data are stored, e.g. the server address or DOI for the raw audio files you've used as in @fig-exportlocs, (or perhaps for your data it's the name of a cupboard full of hard drives in a dusty basement?). People may want to find these data long after the computer you're currently using has been recycled.
 
-::: {layout-ncol="2"}
+::: {#fig-exportdeps layout-ncol="2"}
+
 ![Data locations](./media/exportlocs.png){#fig-exportlocs width="98%"}
 
 ![Deployment details entry](./media/deploymethod.png){#fig-deploymethod width="98%"}
 
-PAMGuard dialogs for entering essential information about the deployment. Tell people where to find the data, which should ideally be an online archive rather than a folder on a computer that may not exist in a years time. also say Where, why, and how the data were collected. Knowing the motivation behind the data collection is essential in understanding statistical models using those data.
+PAMGuard dialogs for entering essential information about the deployment. Tell people where to find the data, which should ideally be an online archive rather than a folder on a computer that may not exist in a years time. also say Where, why, and how the data were collected. Knowing the motivation behind the data collection is essential in understanding statistical models using those data
+
 :::
 
 ## Export Detections and Localizations
@@ -322,6 +332,8 @@ Have a play around. Click on the 'find button' and use the species search dialog
 ![The PAMGuard ITIS Species code search dialog](./media/itis.png){#fig-itis width="60%"}
 
 ::: callout-note
+# Species Codes
+
 Putting these codes into multiple similar projects can get a bit tiresome. It's not possible to make a "standard" translation between the codes that PAMGuard detector use and ITIS since everyone sets up PAMGuard in a different way. However, I am thinking about "Export" and "Import" buttons on these dialogs so that you can move the TSN translations between your own projects more efficiently.
 :::
 
