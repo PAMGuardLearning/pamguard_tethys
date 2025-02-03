@@ -1,0 +1,88 @@
+---
+title: "PAMGuard -- Tethys In A Hurry"
+#subtitle: "Tethys in a hurry"
+bibliography: references.bib
+link-citations: true
+author: 
+  - name: Douglas Gillespie
+    affil-id: 1
+  - name: Marie Roch
+    affil-id: 2
+affiliations: 
+  - id: 1
+    name: Sea Mammal Research Unit, University of St Andrews
+  - id: 2
+    name: Department of Computer Science, San Diego State University
+date: last-modified
+#abstract-title: "Summary"
+#abstract: "this is the abstract which will be over several lines and will be over many lines and that should be fine #{{< pagebreak >}}"
+format:
+  pdf:
+    margin-left: 1.25in
+    margin-right: 1.25in
+    margin-top: 1in
+    margin-bottom: 1in
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \usepackage{scrlayer-scrpage}
+        \rohead{PAMGuard Tethys Tutorial V1.1}
+        \usepackage[noblocks]{authblk}
+        \renewcommand*{\Authsep}{, }
+        \renewcommand*{\Authand}{ and }
+        \renewcommand*{\Authands}{, }
+        \renewcommand\Affilfont{\small}
+#      file: |
+#        - summary.qmd
+    toc: true
+    number-sections: true
+    colorlinks: true
+    fig-cap-location: bottom
+    tbl-cap-location: top   
+    dpi: 600 
+#    include-in-header: 
+#      text: |
+#        "some text to include in the header"
+    include-before-body:
+      text: |
+        \centerline{\textbf{Tutorial Version 1.1}}
+        \vspace{3cm}
+
+
+        \centerline{\textbf{Learning Outcomes}}
+        
+        This tutorial assumes you're familiar with both PAMGuard and Tethys, have both installed and
+        running on your computer, and just want to export some data:
+        \begin{enumerate}
+        \item Add a Tethys module to PAMGuard and connect to the Tethys Server
+        \item Understand relationships between PAMGuard data and Tethys
+        \item Export data from PAMGuard to Tethys, including: 
+        \begin{itemize}
+        \item Calibration data
+        \item Deployment data
+        \item Detections
+        \end{itemize}
+        \item View the exported data both from within PAMGuard and using the Tethys Web client
+        \end{enumerate}
+        \newpage
+---
+
+{{< pagebreak >}} 
+
+# Prerequisites
+
+To run this tutorial you must have PAMGuard version 2.02.16 or later, Tethys sever Version ?? or later. The Tethys server
+must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full 
+PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html). 
+
+## Data
+
+In principle, you can complete this tutorial with any data you like, so long as those data have been processed with PAMGuard and you are able to open and view the data with the [PAMGuard Viewer](https://www.pamguard.org/olhelp/overview/PamMasterHelp/docs/viewerMode.html). Again, if you don't know how to do this, we recommend that you complete the earlier tutorial, [Introduction to Static Monitoring](https://www.pamguard.org/tutorials/staticmonitoring.html). 
+
+This tutorial picks up where the Static Monitoring tutorial left off, using  the pre-processed data available in the file [viewer.zip available on 
+Zenodo](https://zenodo.org/records/13880212). If you've successfully completed that tutorial, you could also use the data that you've processed yourself (which should be broadly similar). 
+
+
+
