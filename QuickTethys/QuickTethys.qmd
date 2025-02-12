@@ -18,6 +18,8 @@ date: last-modified
 #abstract: "this is the abstract which will be over several lines and will be over many lines and that should be fine #{{< pagebreak >}}"
 format:
   pdf:
+    output-file: "tethys_in_a_hurry"
+    output-ext:  "pdf"
     margin-left: 1.25in
     margin-right: 1.25in
     margin-top: 1in
@@ -84,7 +86,7 @@ format:
 
 ## Software Versions
 
-To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version ?? or later. The Tethys server
+To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version 3.2 or later. The Tethys server
 must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full 
 PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html). 
 
