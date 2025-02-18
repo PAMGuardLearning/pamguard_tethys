@@ -185,7 +185,7 @@
 \affil[2]{Department of Computer Science, San Diego State University}
 
 
-\date{2025-02-12}
+\date{2025-02-18}
 \begin{document}
 \maketitle
 
@@ -413,13 +413,18 @@ SoundTrap tutorial dataset}
 
 \end{figure}%
 
-This information was not set correctly when the other tutorial was
-developed, and contains incorrect settings. First, you'll notice that
-there are two hydrophone elements set: there is only one on the
-SoundTrap HF-300, so click on one of them, and delete it. Next, edit the
-remaining hydrophone (Figure~\ref{fig-hydrophone}): Enter the type as
-ST-HF300, the sensitivity as -172.5, and the x,y,z coordinates all as
-zero.
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, colbacktitle=quarto-callout-important-color!10!white, arc=.35mm, colback=white, leftrule=.75mm, toptitle=1mm, breakable, left=2mm, coltitle=black, opacityback=0, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+
+The calibration data may not have been set correctly in data from the
+earlier tutorial, so you need to check it. When you look at the array
+data, if it's showing two hydrophones, delete one of them. Then check
+the calibration and array location data.
+
+\end{tcolorbox}
+
+Next, edit the hydrophone data by double clicking on the hydrophone
+element. (Figure~\ref{fig-hydrophone}): Enter the type as ST-HF300, the
+sensitivity as -172.5, and the x,y,z coordinates all as zero.
 
 Close that dialog with the OK button, then go to the `Streamer', but
 selecting the one at the top that has a reference of a ``Ship GPS Data''
@@ -433,7 +438,7 @@ easy to copy and paste the correct values (Table~\ref{tbl-identify}) if
 you select Decimal display at the top of the dialog
 (Figure~\ref{fig-streamer}).
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, coltitle=black, titlerule=0mm, opacityback=0, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, leftrule=.75mm, colbacktitle=quarto-callout-important-color!10!white, rightrule=.15mm, breakable, arc=.35mm, toptitle=1mm, left=2mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, toprule=.15mm, bottomrule=.15mm, opacitybacktitle=0.6]
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, colbacktitle=quarto-callout-important-color!10!white, arc=.35mm, colback=white, leftrule=.75mm, toptitle=1mm, breakable, left=2mm, coltitle=black, opacityback=0, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
 
 Calibration information is not just about the hydrophone. When dealing
 with digital data, we also need to know how the amplitude of the numbers

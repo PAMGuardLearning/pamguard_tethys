@@ -77,7 +77,7 @@ format:
     pagestyle: plain
 ---
 
-{{< pagebreak >}} 
+{{< pagebreak >}}
 
 \pagenumbering{arabic}
 \pagestyle{plain}
@@ -86,28 +86,23 @@ format:
 
 ## Software Versions
 
-To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version 3.2 or later. The Tethys server
-must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full 
-PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html). 
+To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version 3.2 or later. The Tethys server must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html).
 
 ## Data
 
-In principle, you can complete this tutorial with any data you like, so long as those data have been processed with PAMGuard and you are able to open and view the data with the [PAMGuard Viewer](https://www.pamguard.org/olhelp/overview/PamMasterHelp/docs/viewerMode.html). Again, if you don't know how to do this, we recommend that you complete the earlier tutorial, [Introduction to Static Monitoring](https://www.pamguard.org/tutorials/staticmonitoring.html). 
+In principle, you can complete this tutorial with any data you like, so long as those data have been processed with PAMGuard and you are able to open and view the data with the [PAMGuard Viewer](https://www.pamguard.org/olhelp/overview/PamMasterHelp/docs/viewerMode.html). Again, if you don't know how to do this, we recommend that you complete the earlier tutorial, [Introduction to Static Monitoring](https://www.pamguard.org/tutorials/staticmonitoring.html).
 
-This tutorial picks up where the Static Monitoring tutorial left off, using  the pre-processed data available in the file [viewer.zip available on 
-Zenodo](https://zenodo.org/records/13880212). If you've successfully completed that tutorial, you should use the data that you've already processed yourself. 
+This tutorial picks up where the Static Monitoring tutorial left off, using the pre-processed data available in the file [viewer.zip available on Zenodo](https://zenodo.org/records/13880212). If you've successfully completed that tutorial, you should use the data that you've already processed yourself.
 
 ### Click Classification {#sec-species}
 
-If you've downloaded the viewer data from the [Introduction to Static Monitoring](https://www.pamguard.org/tutorials/staticmonitoring.html) 
-tutorial, then you need to run the click classifier on those data to separate out porpoise clicks. Refer to page 37 of that tutorial and
-complete the section "Automatic classification" before proceeding here. 
+If you've downloaded the viewer data from the [Introduction to Static Monitoring](https://www.pamguard.org/tutorials/staticmonitoring.html) tutorial, then you need to run the click classifier on those data to separate out porpoise clicks. Refer to page 37 of that tutorial and complete the section "Automatic classification" before proceeding here.
 
 # Add the Tethys Module to PAMGuard
 
-Open the data with Viewer mode. If you don't already have it in your PAMGuard configuration, from the *File/Utilities* menu, add the Tethys module. 
+Open the data with Viewer mode. If you don't already have it in your PAMGuard configuration, from the *File/Utilities* menu, add the Tethys module.
 
-Go to the Tethys tab in your PAMGuard display. If the top is orange (@fig-servererror), then it's failed to connect to the server, which means either that the server isn't running (so start it) or PAMGuard is looking at the wrong server address. If you've launched Tethys with it's default address (http://localhost:9779), then PAMGuard will have worked. If you changed something in Tethys, then change it to match Tethys using the settings button just to the right of the address. Once the server connection is established, PAMGuard will revert to its default grey colour. 
+Go to the Tethys tab in your PAMGuard display. If the top is orange (@fig-servererror), then it's failed to connect to the server, which means either that the server isn't running (so start it) or PAMGuard is looking at the wrong server address. If you've launched Tethys with it's default address (http://localhost:9779), then PAMGuard will have worked. If you changed something in Tethys, then change it to match Tethys using the settings button just to the right of the address. Once the server connection is established, PAMGuard will revert to its default grey colour.
 
 ![Tethys server errors colour the PAMGuard display orange](images/tethys1error.png){#fig-servererror}
 
@@ -115,35 +110,32 @@ Go to the Tethys tab in your PAMGuard display. If the top is orange (@fig-server
 
 There are certain bits of information that are required by Tethys and are also used to link to your PAMGuard dataset (a PAMGuard database and binary store) to documents in Tethys.
 
-1. **Project** The Project name is a requirement of Tethys. The dropdown box will show a list of all project names already available in the Tethys database you're using. You can select a name from the dropdown list, or press the 'New Project' button to enter the name of a new one. A single Project may be associated with many PAMGuard datasets, for example, when deploying autonomous recorders, PAMGuard will have one dataset per recorder, or you may have multiple vessel based surveys which all form part of the same project, but will probably have one PAMGuard dataset per cruise. 
-2. **Instrument** The Instrument name is used to link specific Tethys Deployment documents back to a single PAMGuard dataset. The linkage uses both the Instrument name and the date, on the basis that it's impossible for the same instrument to be in two places at once. If it's not set, then press the 
-**New/Edit** button (which will open the PAMGuard array dialog - @fig-instrument) and enter the information. The information consists of an instrument type, e.g. something like MARU,or SoundTrap-HF600, and an Id, which should ideally be a manufacturers serial number. If you don't have a serial number, then write something that can be used to identify the equipment, e.g. Instrument Type: "Home made array", Instrument Id: "2024 Mk 2".  
+1.  **Project** The Project name is a requirement of Tethys. The dropdown box will show a list of all project names already available in the Tethys database you're using. You can select a name from the dropdown list, or press the 'New Project' button to enter the name of a new one. A single Project may be associated with many PAMGuard datasets, for example, when deploying autonomous recorders, PAMGuard will have one dataset per recorder, or you may have multiple vessel based surveys which all form part of the same project, but will probably have one PAMGuard dataset per cruise.
+2.  **Instrument** The Instrument name is used to link specific Tethys Deployment documents back to a single PAMGuard dataset. The linkage uses both the Instrument name and the date, on the basis that it's impossible for the same instrument to be in two places at once. If it's not set, then press the **New/Edit** button (which will open the PAMGuard array dialog - @fig-instrument) and enter the information. The information consists of an instrument type, e.g. something like MARU,or SoundTrap-HF600, and an Id, which should ideally be a manufacturers serial number. If you don't have a serial number, then write something that can be used to identify the equipment, e.g. Instrument Type: "Home made array", Instrument Id: "2024 Mk 2".
 
-![Instrument identifying information in the PAMGuard array dialog](images/instrument.png){#fig-instrument width=45%}
+![Instrument identifying information in the PAMGuard array dialog](images/instrument.png){#fig-instrument width="45%"}
 
 If you're working with the data from the Static Monitoring tutorial, then use the following values (@tbl-identify):
 
-:::{#tbl-identify} 
-|    |   |
-| ----- | ----- |
-| Project | Compass |
+::: {#tbl-identify}
+|                 |                  |
+|-----------------|------------------|
+| Project         | Compass          |
 | Instrument Type | SoundTrap HF-300 |
-| Instrument Id | 738725892 |
-| Latitude | 56.09678  |
-| Longitude | -8.02278 |
+| Instrument Id   | 738725892        |
+| Latitude        | 56.09678         |
+| Longitude       | -8.02278         |
 
 : Essential project information
 :::
 
 # Export Calibration information
+
 ## Set Values in PAMGuard
 
-Before exporting the calibration data, make sure that it's been correctly set. Go back to the 
-array manager dialog, either from the **New/Edit** button next to the instrument id on the Tethys
-display, or from the main PAMGuard menu *Settings / Hydrophone Array ...* (@fig-badarray).
+Before exporting the calibration data, make sure that it's been correctly set. Go back to the array manager dialog, either from the **New/Edit** button next to the instrument id on the Tethys display, or from the main PAMGuard menu *Settings / Hydrophone Array ...* (@fig-badarray).
 
-:::{#fig-arraymanager layout=[[90],[39,-1,59]]}
-
+::: {#fig-arraymanager layout="[[90],[39,-1,59]]"}
 ![Array dialog information for the SoundTrap tutorial dataset](images/badarray.png){#fig-badarray}
 
 ![Correct hydrophone array settings](images/hydrophone.png){#fig-hydrophone}
@@ -151,99 +143,62 @@ display, or from the main PAMGuard menu *Settings / Hydrophone Array ...* (@fig-
 ![Corrected streamer information](images/streamer.png){#fig-streamer}
 
 PAMGuard Array management dialogs
-
 :::
 
-This information was not set correctly when the other tutorial was developed, and contains incorrect
-settings. 
-First, you'll notice that there are two hydrophone elements set: there is only one on the SoundTrap HF-300, 
-so click on one of them, and delete it. 
-Next, edit the remaining hydrophone (@fig-hydrophone): Enter the type as ST-HF300, the sensitivity as
--172.5, and the x,y,z coordinates all as zero. 
+::: callout-important
+The calibration data may not have been set correctly in data from the earlier tutorial, so you need to check it. When you look at the array data, if it's showing two hydrophones,  delete one of them. Then check the calibration and array location data. 
+:::
 
-Close that dialog with the OK button, then go to the 'Streamer', but selecting the one at the top that 
-has a reference of a "Ship GPS Data" and press **Edit**. 
+Next, edit the hydrophone data by double clicking on the hydrophone element. (@fig-hydrophone): Enter the type as ST-HF300, the sensitivity as -172.5, and the x,y,z coordinates all as zero.
 
-Enter a name (though this won't be exported to Tethys), and select the Reference Position as 
-"Fixed Location (moorings and buoys)". Then click on the little menu symbol next to the empty 
-Latitude and Longitude fields and set the correct values for the array location. You'll find 
-it easy to copy and paste the correct values (@tbl-identify) if you select Decimal display at the top
-of the dialog (@fig-streamer). 
+Close that dialog with the OK button, then go to the 'Streamer', but selecting the one at the top that has a reference of a "Ship GPS Data" and press **Edit**.
 
-::: {.callout-important}
+Enter a name (though this won't be exported to Tethys), and select the Reference Position as "Fixed Location (moorings and buoys)". Then click on the little menu symbol next to the empty Latitude and Longitude fields and set the correct values for the array location. You'll find it easy to copy and paste the correct values (@tbl-identify) if you select Decimal display at the top of the dialog (@fig-streamer).
 
+::: callout-important
 ## Complete Calibration Data
 
-Calibration information is not just about the hydrophone. When dealing with digital 
-data, we also need to know how the amplitude of the numbers in the sound files
-relate to the voltages in the wire generated by the hydrophone. 
+Calibration information is not just about the hydrophone. When dealing with digital data, we also need to know how the amplitude of the numbers in the sound files relate to the voltages in the wire generated by the hydrophone.
 
-The hydrophone calibration values we've entered above are only telling us half the story, so 
-it's essential that you also tell PAMGuard how sensitive your recording system was. In PAMGuard
-this is set as a "Peak-Peak voltage range" in the sound acquisition dialog. For SoundTraps, this 
-should be set to 2. See the SoundTrap manuals from [Ocean Instruments](https://www.oceaninstruments.co.nz/)
-for further information. 
-
+The hydrophone calibration values we've entered above are only telling us half the story, so it's essential that you also tell PAMGuard how sensitive your recording system was. In PAMGuard this is set as a "Peak-Peak voltage range" in the sound acquisition dialog. For SoundTraps, this should be set to 2. See the SoundTrap manuals from [Ocean Instruments](https://www.oceaninstruments.co.nz/) for further information.
 :::
 
 ## Run the Export Wizard
 
-Once all data in PAMGuard are correct, you can run the export wizard which will create a Tethys 
-document and write it to the database. To start the process, press the **Export** button in the "Instrument Calibration
-Information" section of the display - that's just under the image of the Tethys Roman mosaic.
+Once all data in PAMGuard are correct, you can run the export wizard which will create a Tethys document and write it to the database. To start the process, press the **Export** button in the "Instrument Calibration Information" section of the display - that's just under the image of the Tethys Roman mosaic.
 
-You'll then be asked for more information about the calibration process (@fig-calwiz). The calibration was
-performed using a piston phone calibrator at 250Hz, though we don't know the details
-of the methodology. Fill in what you can. @Tbl-caldata
-is the information we extracted from the calibration certificate for this instrument. 
+You'll then be asked for more information about the calibration process (@fig-calwiz). The calibration was performed using a piston phone calibrator at 250Hz, though we don't know the details of the methodology. Fill in what you can. @Tbl-caldata is the information we extracted from the calibration certificate for this instrument.
 
-:::{#tbl-caldata}
-|    |   |
-| ----- | ----- |
-| Date   |  14 Jan 2018   |
-| Operator   |  JA   |
-|  Source Model  |  CENTER 327   |
-| Source Serial   | 130307390    |
-|   Frequency | 250Hz    |
-| Coupler   | OIC1    |
+::: {#tbl-caldata}
+|               |             |
+|---------------|-------------|
+| Date          | 14 Jan 2018 |
+| Operator      | JA          |
+| Source Model  | CENTER 327  |
+| Source Serial | 130307390   |
+| Frequency     | 250Hz       |
+| Coupler       | OIC1        |
 
 : Data from the SoundTrap calibration certificate
-
 :::
 
-::: {#fig-calwiz layout=[40,-2,40]}
-
+::: {#fig-calwiz layout="[40,-2,40]"}
 ![Calibration information panel](images/cal1.png){#fig-cal1}
 
 ![Calibration details panel](images/cal2.png){#fig-cal2}
 
 Calibration Export Wizard pages
-
 :::
-
-
 
 # Export Deployment data {#sec-deployments}
 
-A key aspect of Tethys is recording why we collected data, as well as how. This is essential in 
-many studies that might use these data. For example, if recorders were placed in a pseudo random
-pattern across a study area, they they are much more suitable for abundance estimation than 
-recorders that were placed in a known hotspot for a particular species. Being verbose with 
-this information as you export the deployment data is therefore essential if the data are going
-to be useful in years to come. 
+A key aspect of Tethys is recording why we collected data, as well as how. This is essential in many studies that might use these data. For example, if recorders were placed in a pseudo random pattern across a study area, they they are much more suitable for abundance estimation than recorders that were placed in a known hotspot for a particular species. Being verbose with this information as you export the deployment data is therefore essential if the data are going to be useful in years to come.
 
-These data were collected on a duty cycle of 20 minutes recording each hour. There are therefore 
-over 2000 entries in the recordings period table. Right click on the table and *Select All* from the popup menu 
-to export the whole lot as a single, duty cycled, deployment document For more complex situations, 
-such as ad-hoc deployments from vessels, see the online help. 
+These data were collected on a duty cycle of 20 minutes recording each hour. There are therefore over 2000 entries in the recordings period table. Right click on the table and *Select All* from the popup menu to export the whole lot as a single, duty cycled, deployment document For more complex situations, such as ad-hoc deployments from vessels, see the online help.
 
-Press the **Export** button to start the Deployment Export dialog. Again, you'll be asked for several 
-pages of information about what you were doing and why (@fig-deploywiz). The information you need can
-mostly be copied from the project website at 
-[www.sams.ac.uk/science/projects/compass/](https://www.sams.ac.uk/science/projects/compass/).
+Press the **Export** button to start the Deployment Export dialog. Again, you'll be asked for several pages of information about what you were doing and why (@fig-deploywiz). The information you need can mostly be copied from the project website at [www.sams.ac.uk/science/projects/compass/](https://www.sams.ac.uk/science/projects/compass/).
 
-::: {#fig-deploywiz layout=[[49,-1,49],[40]]}
-
+::: {#fig-deploywiz layout="[[49,-1,49],[40]]"}
 ![Project Information](images/depl1.png){#fig-depl1}
 
 ![Deployment Effort](images/depl2.png){#fig-depl2}
@@ -251,46 +206,31 @@ mostly be copied from the project website at
 ![Deployment Description](images/depl3.png){#fig-depl3}
 
 Deployment Export Wizard pages
-
 :::
 
 # Export Detections
 
-Output from each detector in PAMGuard must be exported separately. Available outputs are listed in the lower left panel of the display. 
+Output from each detector in PAMGuard must be exported separately. Available outputs are listed in the lower left panel of the display.
 
 ## Species Codes
 
-Before you can export data, you must set [ITIS species codes](https://itis.gov/) for the detector that you're planning to export. To do 
-this, right click on the appropriate row in the table (in this case, we'll pick the SoundTrap Click Detector Clicks) and select 
-*Species Info ...* from the popup menu. Two species should be defined, one for clicks that haven't been classified, and one for porpoise clicks 
-(@fig-species1). If this isn't the case, then you've probably not set up and run the species classifier (@sec-species).
-For each, press the 'Find' button and enter an appropriate search term (@fig-species2) (e.g. porpoise, cetacean, odontoceti). PAMGuard will search the database for
-possible matches and display a list of options. Select the species  / taxa you want. Then also fill in the Call / Sound type information, which is important for species which have more than one call type (e.g. clicks/ whistles). For further information see the 
-[PAMGuard online help](https://www.pamguard.org/olhelp/utilities/tethys/docs/tethys_speciescodes.html);
+Before you can export data, you must set [ITIS species codes](https://itis.gov/) for the detector that you're planning to export. To do this, right click on the appropriate row in the table (in this case, we'll pick the SoundTrap Click Detector Clicks) and select *Species Info ...* from the popup menu. Two species should be defined, one for clicks that haven't been classified, and one for porpoise clicks (@fig-species1). If this isn't the case, then you've probably not set up and run the species classifier (@sec-species). For each, press the 'Find' button and enter an appropriate search term (@fig-species2) (e.g. porpoise, cetacean, odontoceti). PAMGuard will search the database for possible matches and display a list of options. Select the species / taxa you want. Then also fill in the Call / Sound type information, which is important for species which have more than one call type (e.g. clicks/ whistles). For further information see the [PAMGuard online help](https://www.pamguard.org/olhelp/utilities/tethys/docs/tethys_speciescodes.html);
 
-::: {#fig-species layout=[49,-1,49]}
-
+::: {#fig-species layout="[49,-1,49]"}
 ![Dialog showing all species for a detector](images/species1.png){#fig-species1}
 
 ![Searching for a specific species](images/species2.png){#fig-species2}
 
 PAMGuard dialogs for setting species codes
-
 :::
-
-
 
 ## Granularity
 
-Think about the granularity you want to export data at. This dataset contains over a million clicks, and you probably 
-don't want to export all of them. Might you be better off exporting binned data (counts of detections in a set time
-interval), or encounter data (counts of detections without a gap between them) ? For this example, we'll export 
-encounter level data with an encounter defined as at least 10 clicks and a 10 minute gap from adjacent encounters. 
+Think about the granularity you want to export data at. This dataset contains over a million clicks, and you probably don't want to export all of them. Might you be better off exporting binned data (counts of detections in a set time interval), or encounter data (counts of detections without a gap between them) ? For this example, we'll export encounter level data with an encounter defined as at least 10 clicks and a 10 minute gap from adjacent encounters.
 
 ## Run The Export Wizard
 
 ::: {#fig-export layout-ncol="3"}
-
 ![Detector information](images/export1.png){#fig-export1}
 
 ![Granularity and filtering](images/export2a.png){#fig-export2}
@@ -304,110 +244,62 @@ encounter level data with an encounter defined as at least 10 clicks and a 10 mi
 ![Export progress](images/export6.png){#fig-export6}
 
 Detections Export Wizard pages
-
 :::
 
-One the species codes are set, you can press the **Export** button to start the export wizard (@fig-export).
-The first page pulls information about the detector automatically from PAMGuard. On the second page, you select whether you're exporting 
-Detections or Localizations, the Granularity, and importantly set an optional data filter. The data filter is 
-essential for many PAMGuard detectors, such as the Click Detector, which generally run at quite a high 
-false alarm rate, before using an additional classifier to label the clicks of interest. Press the button
-next to the Data Selection Filter (red box in @fig-export2) and configure it to only select porpoise clicks^[Output from different detectors in PAMGuard often have different properties, so the Data Selection Filter you see will be different for each detector. See the PAMGuard online help for information about data selectors for specific detectors.]
-(@fig-export3).The settings of the data filter will be included in the detector parameters written to 
-Tethys to provide a full record of choices made during the export process. 
+One the species codes are set, you can press the **Export** button to start the export wizard (@fig-export). The first page pulls information about the detector automatically from PAMGuard. On the second page, you select whether you're exporting Detections or Localizations, the Granularity, and importantly set an optional data filter. The data filter is essential for many PAMGuard detectors, such as the Click Detector, which generally run at quite a high false alarm rate, before using an additional classifier to label the clicks of interest. Press the button next to the Data Selection Filter (red box in @fig-export2) and configure it to only select porpoise clicks[^1] (@fig-export3).The settings of the data filter will be included in the detector parameters written to Tethys to provide a full record of choices made during the export process.
 
-On the next page (@fig-export4) add further information that will help inform anyone using these data. These 
-fields are similar to those you filled in when exporting the Deployment information (@sec-deployments) but require
-different information. For example, the Deployment information might contain quite general information along the 
-lines of "Sound Trap deployments to detect small cetaceans", but the analysis so far has only dealt with 
-Harbour Porpoise. Perhaps you configured the detector to only detect buzzes, and not regular clicks, etc. you need 
-to include information about what you actually did with the data, which is different to what MIGHT be done with the 
-data here. 
+[^1]: Output from different detectors in PAMGuard often have different properties, so the Data Selection Filter you see will be different for each detector. See the PAMGuard online help for information about data selectors for specific detectors.
 
-Once you get to the last page, press the **Export Data** button and wait while PAMGuard chugs through, loading a file
-at a time, extracting the clicks that pass the selection filter, creating Encounters, or Binned Data, and then 
-finally writing the document.
+On the next page (@fig-export4) add further information that will help inform anyone using these data. These fields are similar to those you filled in when exporting the Deployment information (@sec-deployments) but require different information. For example, the Deployment information might contain quite general information along the lines of "Sound Trap deployments to detect small cetaceans", but the analysis so far has only dealt with Harbour Porpoise. Perhaps you configured the detector to only detect buzzes, and not regular clicks, etc. you need to include information about what you actually did with the data, which is different to what MIGHT be done with the data here.
 
-Once the export process is complete, a dialog will show to indicate success and a record 
-will show in the table in the bottom right corner of the display  (@fig-success). Note that for
-this export, by selecting to only export porpoise clicks, and exporting them as encounters, only
-616 Detection records were created from a total of 1070555 click in the data. 
+Once you get to the last page, press the **Export Data** button and wait while PAMGuard chugs through, loading a file at a time, extracting the clicks that pass the selection filter, creating Encounters, or Binned Data, and then finally writing the document.
+
+Once the export process is complete, a dialog will show to indicate success and a record will show in the table in the bottom right corner of the display (@fig-success). Note that for this export, by selecting to only export porpoise clicks, and exporting them as encounters, only 616 Detection records were created from a total of 1070555 click in the data.
 
 ![Message shown on completion of a successful export](images/success.png){#fig-success width="90%"}
 
 # View your data in PAMGuard
 
-
-The Tethys Client and Data Explorer offer by far the best and most flexible interface for viewing Tethys data. However, 
-PAMGuard does allow a quick view of exported documents which can be useful to verify that data 
-have exported correctly. 
+The Tethys Client and Data Explorer offer by far the best and most flexible interface for viewing Tethys data. However, PAMGuard does allow a quick view of exported documents which can be useful to verify that data have exported correctly.
 
 ## Web Client
 
-Assuming that the server is running, and PAMGuard is successfully connected to the 
-server, then simply press the **Open Client** button at the top of the display. This will 
-open the Tethys Web Client in your default web browser. To view listings of Documents
-of a particular type (Calibrations, Deployments, etc.), to to the small menu in the 
-very top right of the web page, to the right of the Tethys mosaic image. 
+Assuming that the server is running, and PAMGuard is successfully connected to the server, then simply press the **Open Client** button at the top of the display. This will open the Tethys Web Client in your default web browser. To view listings of Documents of a particular type (Calibrations, Deployments, etc.), to to the small menu in the very top right of the web page, to the right of the Tethys mosaic image.
 
 ## PAMGuard Quick View
 
-Each section of the display will show which documents have been exported. For the Detections, this is the
-separate table in the bottom right of the display, since each module in PAMGuard might be exported to multiple
-documents. When you select a PAMGuard datablock in the bottom left table, the bottom right table will populate
-with documents associated with that detector. 
+Each section of the display will show which documents have been exported. For the Detections, this is the separate table in the bottom right of the display, since each module in PAMGuard might be exported to multiple documents. When you select a PAMGuard datablock in the bottom left table, the bottom right table will populate with documents associated with that detector.
 
-You can right click on the appropriate table row and select to view the document, which will open in a new 
-window (@fig-docview). 
+You can right click on the appropriate table row and select to view the document, which will open in a new window (@fig-docview).
 
 ![Example of a Deployment document viewed within PAMGuard](images/docview.png){#fig-docview}
 
-You can also use the small down pointing arrow to the right of the **Open Client** button in the connection panel 
-at the top of the display to open lists of all documents in the database, either using the Tethys Client, or in PAMGuard. 
+You can also use the small down pointing arrow to the right of the **Open Client** button in the connection panel at the top of the display to open lists of all documents in the database, either using the Tethys Client, or in PAMGuard.
 
 Open the Deployment document you created earlier and you will see the information you entered during the export process (@fig-docview).
 
 ## Delete Exported Documents
 
-As with viewing documents, the same right click actions and the PAMGuard documents list can be used to delete documents. 
+As with viewing documents, the same right click actions and the PAMGuard documents list can be used to delete documents.
 
 # Problems
 
 ## Problems exporting
 
-If PAMGuard fails to export a document to Tethys, an error message will appear on the screen. Please copy the text 
-from this message (there is  a copy button in the corner of the pop-up window) and send it to us 
-at [support@pamguard.org](mailto:support@pamguard.org). 
+If PAMGuard fails to export a document to Tethys, an error message will appear on the screen. Please copy the text from this message (there is a copy button in the corner of the pop-up window) and send it to us at [support\@pamguard.org](mailto:support@pamguard.org).
 
-Just prior to export, PAMGuard saves a text copy of each document in a temporary folder. This 
-will be something like C:\\Users\\*yourusername*\\AppData\\Local\\Temp\\PAMGuardTethys. You can find
-this folder most easily simply by going back to the little menu to the right of the **Open Client** button and
-selecting *Open temp folder* from the bottom of the menu. Here you should find a copy of the document that failed
-to export, (though it may get deleted when you exit PAMGuard). 
-If you can attach that to your email, it will help us to quickly assess what went wrong and try to fix the problem in future releases.
+Just prior to export, PAMGuard saves a text copy of each document in a temporary folder. This will be something like C:\\Users\\*yourusername*\\AppData\\Local\\Temp\\PAMGuardTethys. You can find this folder most easily simply by going back to the little menu to the right of the **Open Client** button and selecting *Open temp folder* from the bottom of the menu. Here you should find a copy of the document that failed to export, (though it may get deleted when you exit PAMGuard). If you can attach that to your email, it will help us to quickly assess what went wrong and try to fix the problem in future releases.
 
 ## PAMGuard viewer not finding Tethys data
 
-When you close and re-open the PAMGuard viewer that you exported data from, then if the Tethys server is running
-PAMGuard should automatically display the documents associated with that dataset. If this doesn't happen, then 
-first open the Client, and check that you can see the documents there. If the documents exist, then the most likely 
-cause is that you've changed the Project name, the Instrument name, or the Instrument Id in the Array Manager all 
-of which are used to associate a PAMGuard dataset with a set of Tethys documents
-(@sec-metadata). 
+When you close and re-open the PAMGuard viewer that you exported data from, then if the Tethys server is running PAMGuard should automatically display the documents associated with that dataset. If this doesn't happen, then first open the Client, and check that you can see the documents there. If the documents exist, then the most likely cause is that you've changed the Project name, the Instrument name, or the Instrument Id in the Array Manager all of which are used to associate a PAMGuard dataset with a set of Tethys documents (@sec-metadata).
 
 # Further Learning
 
 ## Tethys
 
-There is extensive documentation for the Tethys Client and the Data Explorer which you should find in 
-both MS Word and PDF format in the Documentation folder of your Tethys Installation. There, you'll also find
-out about how to import data into R and Matlab. 
-One of the documents is called "READ ME FIRST.docx", so start there. 
+There is extensive documentation for the Tethys Client and the Data Explorer which you should find in both MS Word and PDF format in the Documentation folder of your Tethys Installation. There, you'll also find out about how to import data into R and Matlab. One of the documents is called "READ ME FIRST.docx", so start there.
 
 ## PAMGuard Batch Processing
 
-This 'in a Hurry' tutorial has run to 12 pages, and I'm sure you don't want to go through all of the steps above
-for every set of data you've collected. The good news is that you probably don't have to. The latest
-version (2.0 or later) of the batch processor module can run export tasks on multiple PAMGuard datasets 
-fully (or at least mostly) automatically. To learn more about this, complete the latest Batch Processing
-tutorial available at (**link to follow**).
+This 'in a Hurry' tutorial has run to 12 pages, and I'm sure you don't want to go through all of the steps above for every set of data you've collected. The good news is that you probably don't have to. The latest version (2.0 or later) of the batch processor module can run export tasks on multiple PAMGuard datasets fully (or at least mostly) automatically. To learn more about this, complete the latest Batch Processing tutorial available at (**link to follow**).
