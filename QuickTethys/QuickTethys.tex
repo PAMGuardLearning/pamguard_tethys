@@ -185,7 +185,7 @@
 \affil[2]{Department of Computer Science, San Diego State University}
 
 
-\date{2025-02-18}
+\date{2025-02-20}
 \begin{document}
 \maketitle
 
@@ -264,19 +264,19 @@ classification'' before proceeding here.
 \section{Add the Tethys Module to
 PAMGuard}\label{add-the-tethys-module-to-pamguard}
 
-Open the data with Viewer mode. If you don't already have it in your
-PAMGuard configuration, from the \emph{File/Utilities} menu, add the
-Tethys module.
+Open the data with the PAMGuard Viewer. If you don't already have it in
+your PAMGuard configuration, from the \emph{File/Utilities} menu, add
+the Tethys module.
 
 Go to the Tethys tab in your PAMGuard display. If the top is orange
 (Figure~\ref{fig-servererror}), then it's failed to connect to the
 server, which means either that the server isn't running (so start it)
 or PAMGuard is looking at the wrong server address. If you've launched
 Tethys with it's default address (http://localhost:9779), then PAMGuard
-will have worked. If you changed something in Tethys, then change it to
-match Tethys using the settings button just to the right of the address.
-Once the server connection is established, PAMGuard will revert to its
-default grey colour.
+will have worked. If you changed something in Tethys, then change
+PAMGuard to match Tethys using the settings button just to the right of
+the address. Once the server connection is established, PAMGuard will
+revert to its default grey colour.
 
 \begin{figure}
 
@@ -302,27 +302,32 @@ binary store) to documents in Tethys.
 \tightlist
 \item
   \textbf{Project} The Project name is a requirement of Tethys. The
-  dropdown box will show a list of all project names already available
-  in the Tethys database you're using. You can select a name from the
-  dropdown list, or press the `New Project' button to enter the name of
-  a new one. A single Project may be associated with many PAMGuard
-  datasets, for example, when deploying autonomous recorders, PAMGuard
-  will have one dataset per recorder, or you may have multiple vessel
-  based surveys which all form part of the same project, but will
-  probably have one PAMGuard dataset per cruise.
+  project label is text that helps you organize your data. It is usually
+  used to provide a label for a group of instrument deployments that are
+  related by geographic region, funding source, or purpose, and can
+  serve as a useful filter when querying data. The dropdown box will
+  show a list of all project names already available in the Tethys
+  database you're using. You can select a name from the dropdown list,
+  or press the `New Project' button to enter the name of a new one. A
+  single Project may be associated with many PAMGuard datasets, for
+  example, when deploying autonomous recorders, PAMGuard will have one
+  dataset per recorder, or you may have multiple vessel based surveys
+  which all form part of the same project, but will probably have one
+  PAMGuard dataset per cruise.
 \item
   \textbf{Instrument} The Instrument name is used to link specific
   Tethys Deployment documents back to a single PAMGuard dataset. The
-  linkage uses both the Instrument name and the date, on the basis that
-  it's impossible for the same instrument to be in two places at once.
-  If it's not set, then press the \textbf{New/Edit} button (which will
-  open the PAMGuard array dialog - Figure~\ref{fig-instrument}) and
-  enter the information. The information consists of an instrument type,
-  e.g.~something like MARU,or SoundTrap-HF600, and an Id, which should
-  ideally be a manufacturers serial number. If you don't have a serial
-  number, then write something that can be used to identify the
-  equipment, e.g.~Instrument Type: ``Home made array'', Instrument Id:
-  ``2024 Mk 2''.
+  linkage uses both the Instrument name and the date range of the
+  PAMGuard data, on the basis that it's impossible for the same
+  instrument to be in two places at once. If it's not set, then press
+  the \textbf{New/Edit} button (which will open the PAMGuard array
+  dialog - Figure~\ref{fig-instrument}) and enter the information. The
+  information consists of an instrument type, e.g.~something like
+  MARU,or SoundTrap-HF600, and an Id, which should ideally be a
+  manufacturer's serial number. If you don't have a serial number, then
+  write something that can be used to identify the equipment,
+  e.g.~Instrument Type: ``Home made array'', Instrument Id: ``2024 Mk
+  2''.
 \end{enumerate}
 
 \begin{figure}
@@ -339,7 +344,9 @@ PAMGuard array dialog}
 \end{figure}%
 
 If you're working with the data from the Static Monitoring tutorial,
-then use the following values (Table~\ref{tbl-identify}):
+then use the following values for project and instrument
+(Table~\ref{tbl-identify}). The latitude and longitude of the deployment
+are also given here and will be used in the next step
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{Essential project
@@ -413,12 +420,12 @@ SoundTrap tutorial dataset}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, colbacktitle=quarto-callout-important-color!10!white, arc=.35mm, colback=white, leftrule=.75mm, toptitle=1mm, breakable, left=2mm, coltitle=black, opacityback=0, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, toptitle=1mm, colback=white, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, breakable, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, opacityback=0, left=2mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, coltitle=black]
 
 The calibration data may not have been set correctly in data from the
 earlier tutorial, so you need to check it. When you look at the array
-data, if it's showing two hydrophones, delete one of them. Then check
-the calibration and array location data.
+data, if it's showing two hydrophones, delete the second of them. Then
+check the calibration and array location data.
 
 \end{tcolorbox}
 
@@ -438,7 +445,7 @@ easy to copy and paste the correct values (Table~\ref{tbl-identify}) if
 you select Decimal display at the top of the dialog
 (Figure~\ref{fig-streamer}).
 
-\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, colbacktitle=quarto-callout-important-color!10!white, arc=.35mm, colback=white, leftrule=.75mm, toptitle=1mm, breakable, left=2mm, coltitle=black, opacityback=0, rightrule=.15mm, toprule=.15mm, colframe=quarto-callout-important-color-frame, bottomtitle=1mm, titlerule=0mm, bottomrule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, toptitle=1mm, colback=white, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, breakable, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, opacityback=0, left=2mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, coltitle=black]
 
 Calibration information is not just about the hydrophone. When dealing
 with digital data, we also need to know how the amplitude of the numbers
@@ -456,35 +463,6 @@ further information.
 \end{tcolorbox}
 
 \subsection{Run the Export Wizard}\label{run-the-export-wizard}
-
-Once all data in PAMGuard are correct, you can run the export wizard
-which will create a Tethys document and write it to the database. To
-start the process, press the \textbf{Export} button in the ``Instrument
-Calibration Information'' section of the display - that's just under the
-image of the Tethys Roman mosaic.
-
-You'll then be asked for more information about the calibration process
-(Figure~\ref{fig-calwiz}). The calibration was performed using a piston
-phone calibrator at 250Hz, though we don't know the details of the
-methodology. Fill in what you can. Table~\ref{tbl-caldata} is the
-information we extracted from the calibration certificate for this
-instrument.
-
-\begin{longtable}[]{@{}ll@{}}
-\caption{Data from the SoundTrap calibration
-certificate}\label{tbl-caldata}\tabularnewline
-\toprule\noalign{}
-\endfirsthead
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Date & 14 Jan 2018 \\
-Operator & JA \\
-Source Model & CENTER 327 \\
-Source Serial & 130307390 \\
-Frequency & 250Hz \\
-Coupler & OIC1 \\
-\end{longtable}
 
 \begin{figure}
 
@@ -518,6 +496,35 @@ Coupler & OIC1 \\
 \caption{\label{fig-calwiz}Calibration Export Wizard pages}
 
 \end{figure}%
+
+Once all data in PAMGuard are correct, you can run the export wizard
+which will create a Tethys document and write it to the database. To
+start the process, press the \textbf{Export} button in the ``Instrument
+Calibration Information'' section of the display - that's just under the
+image of the Tethys Roman mosaic.
+
+You'll then be asked for more information about the calibration process
+(Figure~\ref{fig-calwiz}). The calibration was performed using a piston
+phone calibrator at 250Hz, though we don't know the details of the
+methodology. Fill in what you can. Table~\ref{tbl-caldata} is the
+information we extracted from the calibration certificate for this
+instrument.
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Data from the SoundTrap calibration
+certificate}\label{tbl-caldata}\tabularnewline
+\toprule\noalign{}
+\endfirsthead
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Date & 14 Jan 2018 \\
+Operator & JA \\
+Source Model & CENTER 327 \\
+Source Serial & 130307390 \\
+Frequency & 250Hz \\
+Coupler & OIC1 \\
+\end{longtable}
 
 \section{Export Deployment data}\label{sec-deployments}
 
@@ -596,8 +603,8 @@ Available outputs are listed in the lower left panel of the display.
 \subsection{Species Codes}\label{species-codes}
 
 Before you can export data, you must set \href{https://itis.gov/}{ITIS
-species codes} for the detector that you're planning to export. To do
-this, right click on the appropriate row in the table (in this case,
+species codes} for the detector data that you're planning to export. To
+do this, right click on the appropriate row in the table (in this case,
 we'll pick the SoundTrap Click Detector Clicks) and select \emph{Species
 Info \ldots{}} from the popup menu. Two species should be defined, one
 for clicks that haven't been classified, and one for porpoise clicks
@@ -893,13 +900,14 @@ documents is called ``READ ME FIRST.docx'', so start there.
 
 \subsection{PAMGuard Batch Processing}\label{pamguard-batch-processing}
 
-This `in a Hurry' tutorial has run to 12 pages, and I'm sure you don't
-want to go through all of the steps above for every set of data you've
-collected. The good news is that you probably don't have to. The latest
-version (2.0 or later) of the batch processor module can run export
-tasks on multiple PAMGuard datasets fully (or at least mostly)
+This `in a Hurry' tutorial has run to over 10 pages, and I'm sure you
+don't want to go through all of the steps above for every set of data
+you've collected. The good news is that you probably don't have to. The
+latest version (2.0 or later) of the batch processor module can run
+export tasks on multiple PAMGuard datasets fully (or at least mostly)
 automatically. To learn more about this, complete the latest Batch
-Processing tutorial available at (\textbf{link to follow}).
+Processing and Batch Output to Tethys tutorials available at
+(\textbf{link to follow}).
 
 
 
