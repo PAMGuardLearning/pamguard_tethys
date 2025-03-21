@@ -18,8 +18,10 @@ date: last-modified
 #abstract: "this is the abstract which will be over several lines and will be over many lines and that should be fine #{{< pagebreak >}}"
 format:
   pdf:
-    output-file: "tethys_in_a_hurry"
+    output-file: "tethys_in_a_hurry_1.2"
     output-ext:  "pdf"
+    pdf-engine: xelatex
+    mainfont: Verdana
     margin-left: 1.25in
     margin-right: 1.25in
     margin-top: 1in
@@ -31,7 +33,7 @@ format:
       text: |
         \pagenumbering{gobble}
         \usepackage{scrlayer-scrpage}
-        \rohead{PAMGuard Tethys in a Hurry V1.0}
+        \rohead{PAMGuard Tethys in a Hurry V1.2}
         \usepackage[noblocks]{authblk}
         \renewcommand*{\Authsep}{, }
         \renewcommand*{\Authand}{ and }
@@ -52,7 +54,7 @@ format:
 #        "some text to include in the header"
     include-before-body:
       text: |
-        \centerline{\textbf{Tutorial Version 1.0}}
+        \centerline{\textbf{Tutorial Version 1.2}}
         \vspace{3cm}
 
         \centerline{\textbf{Learning Outcomes}}
@@ -86,7 +88,7 @@ format:
 
 ## Software Versions
 
-To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version 3.2 or later. The Tethys server must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html).
+To run this tutorial you must have PAMGuard version 2.02.16 or later, and Tethys sever Version 3.2 beta 2 or later. The Tethys server must be running on your computer. If you don't have these, or don't know how to set them up, please complete the full PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html).
 
 ## Data
 
@@ -198,7 +200,7 @@ A key aspect of Tethys is recording why we collected data, as well as how. This 
 
 These data were collected on a duty cycle of 20 minutes recording each hour. There are therefore over 2000 entries in the recordings period table. Right click on the table and *Select All* from the popup menu to export the whole lot as a single, duty cycled, deployment document For more complex situations, such as ad-hoc deployments from vessels, see the online help.
 
-Press the **Export** button to start the Deployment Export dialog. Again, you'll be asked for several pages of information about what you were doing and why (@fig-deploywiz). The information you need can mostly be copied from the project website at [www.sams.ac.uk/science/projects/compass/](https://www.sams.ac.uk/science/projects/compass/).
+Press the **Export** button to start the Deployment Export dialog. Again, you'll be asked for several pages of information about what you were doing and why (@fig-deploywiz). The information you need can mostly be copied from the project website at [https://compass-oceanscience.eu/](hhttps://compass-oceanscience.eu/).
 
 ::: {#fig-deploywiz layout="[[49,-1,49],[40]]"}
 ![Project Information](images/depl1.png){#fig-depl1}
@@ -304,4 +306,10 @@ There is extensive documentation for the Tethys Client and the Data Explorer whi
 
 ## PAMGuard Batch Processing
 
-This 'in a Hurry' tutorial has run to over 10 pages, and I'm sure you don't want to go through all of the steps above for every set of data you've collected. The good news is that you probably don't have to. The latest version (2.0 or later) of the batch processor module can run export tasks on multiple PAMGuard datasets fully (or at least mostly) automatically. To learn more about this, complete the latest Batch Processing and Batch Output to Tethys tutorials available at (**link to follow**).
+This 'in a Hurry' tutorial has run to over 10 pages, and I'm sure you don't want to go through all of the steps above for every set of data you've collected. The good news is that you probably don't have to. The latest version (2.0 or later) of the batch processor module can run export tasks on multiple PAMGuard datasets fully (or at least mostly) automatically. To learn more about this, complete the latest [Batch Processing](https://www.pamguard.org/tutorials/batchprocessing.html) and [Batch Output to Tethys](https://www.pamguard.org/tutorials/tethys.html) tutorials available on the PAMGuard website.
+
+# Acknowlegements
+
+Funding for this work was provided by the United States [Bureau of Ocean Energy Management](https://www.boem.gov/) under contract 140M0122C0006 (University of Saint Andrews) and Cooperative Agreement M22AC00019-00 (San Diego State University).
+
+[![](media/BOEM_Logo_Web_Header.png){width="33%"}](https://www.boem.gov/)

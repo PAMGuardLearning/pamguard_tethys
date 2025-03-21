@@ -20,6 +20,7 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
+    \setmainfont[]{Verdana}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -96,7 +97,7 @@
 
 \pagenumbering{gobble}
 \usepackage{scrlayer-scrpage}
-\rohead{PAMGuard Tethys in a Hurry V1.0}
+\rohead{PAMGuard Tethys in a Hurry V1.2}
 \usepackage[noblocks]{authblk}
 \renewcommand*{\Authsep}{, }
 \renewcommand*{\Authand}{ and }
@@ -185,11 +186,11 @@
 \affil[2]{Department of Computer Science, San Diego State University}
 
 
-\date{2025-02-20}
+\date{2025-03-21}
 \begin{document}
 \maketitle
 
-\centerline{\textbf{Tutorial Version 1.0}}
+\centerline{\textbf{Tutorial Version 1.2}}
 \vspace{3cm}
 
 \centerline{\textbf{Learning Outcomes}}
@@ -230,9 +231,10 @@ running on your computer, and just need a quick guide to export some data:
 \subsection{Software Versions}\label{software-versions}
 
 To run this tutorial you must have PAMGuard version 2.02.16 or later,
-and Tethys sever Version 3.2 or later. The Tethys server must be running
-on your computer. If you don't have these, or don't know how to set them
-up, please complete the full PAMGuard Tethys tutorial available at
+and Tethys sever Version 3.2 beta 2 or later. The Tethys server must be
+running on your computer. If you don't have these, or don't know how to
+set them up, please complete the full PAMGuard Tethys tutorial available
+at
 \href{https://www.pamguard.org/tutorials/tethys.html}{www.pamguard.org/tutorials/tethys.html}.
 
 \subsection{Data}\label{data}
@@ -420,7 +422,7 @@ SoundTrap tutorial dataset}
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, toptitle=1mm, colback=white, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, breakable, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, opacityback=0, left=2mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colback=white, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Important}, toptitle=1mm, arc=.35mm, bottomtitle=1mm, coltitle=black, colframe=quarto-callout-important-color-frame, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, titlerule=0mm, rightrule=.15mm, left=2mm, breakable]
 
 The calibration data may not have been set correctly in data from the
 earlier tutorial, so you need to check it. When you look at the array
@@ -445,7 +447,7 @@ easy to copy and paste the correct values (Table~\ref{tbl-identify}) if
 you select Decimal display at the top of the dialog
 (Figure~\ref{fig-streamer}).
 
-\begin{tcolorbox}[enhanced jigsaw, bottomtitle=1mm, toptitle=1mm, colback=white, toprule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, breakable, opacitybacktitle=0.6, colframe=quarto-callout-important-color-frame, opacityback=0, left=2mm, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, coltitle=black]
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, colback=white, colbacktitle=quarto-callout-important-color!10!white, bottomrule=.15mm, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Complete Calibration Data}, toptitle=1mm, arc=.35mm, bottomtitle=1mm, coltitle=black, colframe=quarto-callout-important-color-frame, opacityback=0, opacitybacktitle=0.6, leftrule=.75mm, titlerule=0mm, rightrule=.15mm, left=2mm, breakable]
 
 Calibration information is not just about the hydrophone. When dealing
 with digital data, we also need to know how the amplitude of the numbers
@@ -548,7 +550,7 @@ Press the \textbf{Export} button to start the Deployment Export dialog.
 Again, you'll be asked for several pages of information about what you
 were doing and why (Figure~\ref{fig-deploywiz}). The information you
 need can mostly be copied from the project website at
-\href{https://www.sams.ac.uk/science/projects/compass/}{www.sams.ac.uk/science/projects/compass/}.
+\href{hhttps://compass-oceanscience.eu/}{https://compass-oceanscience.eu/}.
 
 \begin{figure}
 
@@ -905,9 +907,20 @@ don't want to go through all of the steps above for every set of data
 you've collected. The good news is that you probably don't have to. The
 latest version (2.0 or later) of the batch processor module can run
 export tasks on multiple PAMGuard datasets fully (or at least mostly)
-automatically. To learn more about this, complete the latest Batch
-Processing and Batch Output to Tethys tutorials available at
-(\textbf{link to follow}).
+automatically. To learn more about this, complete the latest
+\href{https://www.pamguard.org/tutorials/batchprocessing.html}{Batch
+Processing} and
+\href{https://www.pamguard.org/tutorials/tethys.html}{Batch Output to
+Tethys} tutorials available on the PAMGuard website.
+
+\section{Acknowlegements}\label{acknowlegements}
+
+Funding for this work was provided by the United States
+\href{https://www.boem.gov/}{Bureau of Ocean Energy Management} under
+contract 140M0122C0006 (University of Saint Andrews) and Cooperative
+Agreement M22AC00019-00 (San Diego State University).
+
+\href{https://www.boem.gov/}{\includegraphics[width=0.33\linewidth,height=\textheight,keepaspectratio]{media/BOEM_Logo_Web_Header.png}}
 
 
 

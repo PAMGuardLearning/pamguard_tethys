@@ -20,6 +20,7 @@
 \usepackage{lmodern}
 \ifPDFTeX\else  
     % xetex/luatex font selection
+    \setmainfont[]{Verdana}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -127,7 +128,7 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{scrlayer-scrpage}
-\rohead{PAMGuard Tethys Tutorial V1.1}
+\rohead{PAMGuard Tethys Tutorial V1.2}
 \usepackage[noblocks]{authblk}
 \renewcommand*{\Authsep}{, }
 \renewcommand*{\Authand}{ and }
@@ -216,11 +217,11 @@
 \affil[2]{Department of Computer Science, San Diego State University}
 
 
-\date{2025-01-31}
+\date{2025-03-21}
 \begin{document}
 \maketitle
 
-\centerline{\textbf{Tutorial Version 1.1}}
+\centerline{\textbf{Tutorial Version 1.2}}
 \vspace{3cm}
 
 
@@ -346,30 +347,13 @@ data, then go through them again with your own.
 
 This tutorial will work with
 \href{https://www.pamguard.org/downloadsurvey.html}{PAMGuard version
-2.02.15 or later}, and \href{https://zenodo.org/records/13626338}{Tethys
-version 3.1}.
-
-If you are running PAMGuard version 2.02.15 or earlier, you must enable
-Tethys in PAMGuard by specifying the -smru option as a command line
-option (Figure~\ref{fig-smru}) when you install PAMGuard.
-
-\begin{figure}
-
-\centering{
-
-\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{./media/smruoption.png}
-
-}
-
-\caption{\label{fig-smru}Setting the -smru command line option during
-installation}
-
-\end{figure}%
+2.02.16 or later}, and \href{https://tethys.sdsu.edu/install/}{Tethys
+version 3.2 beta 2}.
 
 \subsubsection{Tethys}\label{tethys}
 
-Download \href{https://zenodo.org/records/13626338}{Tethys 3.1 from
-Zenodo}. Two databases are available, \textbf{demodb.zip} contains
+Download \href{https://tethys.sdsu.edu/install}{Tethys 3.2 beta 2 or
+later}. Two databases are available, \textbf{demodb.zip} contains
 example output from other studies and will allow you to explore all
 Tethys functionality in full. The smaller \textbf{metadata.zip} contains
 only an empty database. We recommend that you use \textbf{demodb} for
@@ -393,7 +377,7 @@ approximately 2 GB and it will require about 18 GB on your machine. The
 vast majority of the size is attributable to the content of the
 databases that are distributed with the installer.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, arc=.35mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, colback=white, rightrule=.15mm, bottomtitle=1mm, bottomrule=.15mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Quicker unzipping}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, breakable, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, bottomtitle=1mm, left=2mm, breakable, opacitybacktitle=0.6, opacityback=0, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Quicker unzipping}, coltitle=black, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 The unzip functionality that is bundled with Windows can be very slow,
 if you have a dedicated zip archive manager such as
@@ -580,7 +564,7 @@ database file and binary store folder.
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, arc=.35mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, colback=white, rightrule=.15mm, bottomtitle=1mm, bottomrule=.15mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Windows Explorer quick access}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, breakable, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, bottomtitle=1mm, left=2mm, breakable, opacitybacktitle=0.6, opacityback=0, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Windows Explorer quick access}, coltitle=black, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 Did you know that if you right click on the database file, you'll get an
 option to open the database in the PAMGuard Viewer from Windows Explorer
@@ -646,7 +630,7 @@ module. This is available in the File / Add Modules / Utilities menu. If
 you can't find it, then you've an old version of PAMGuard, or you've not
 followed the PAMGuard installation instructions in
 Section~\ref{sec-installpamguard} properly and set the -smru option
-(Figure~\ref{fig-smru}).
+(\textbf{?@fig-smru}).
 
 The first time you run you may get a security warning
 (Figure~\ref{fig-firewall}). Say OK to everything. If you don't have
@@ -765,7 +749,7 @@ collected audio data''
 
 Obviously, for `real' data, you'd enter a lot more detail at this point.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, arc=.35mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, colback=white, rightrule=.15mm, bottomtitle=1mm, bottomrule=.15mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, breakable, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, bottomtitle=1mm, left=2mm, breakable, opacitybacktitle=0.6, opacityback=0, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, coltitle=black, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 At this point in the software development, it's a really good time to
 make suggestions. Do you want the boxes for project information to be
@@ -818,7 +802,7 @@ or three dimensions.
 These should be exported in order so that the Deployments can reference
 the Calibrations and the Detections can reference the Deployments, etc.
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, arc=.35mm, toptitle=1mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6, colback=white, rightrule=.15mm, bottomtitle=1mm, bottomrule=.15mm, left=2mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, breakable, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, bottomtitle=1mm, left=2mm, breakable, opacitybacktitle=0.6, opacityback=0, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{No promises, but there is no harm in asking \ldots{}}, coltitle=black, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white]
 
 What types of calibration data do you have for your own studies ? Will
 it fit into these data fields or do you require something different ?
@@ -1014,7 +998,7 @@ there were three). Select the one you want and press OK.
 
 \end{figure}%
 
-\begin{tcolorbox}[enhanced jigsaw, opacityback=0, arc=.35mm, toptitle=1mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, colback=white, rightrule=.15mm, bottomtitle=1mm, bottomrule=.15mm, left=2mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Species Codes}, coltitle=black, titlerule=0mm, colbacktitle=quarto-callout-note-color!10!white, leftrule=.75mm, breakable, toprule=.15mm]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, bottomtitle=1mm, left=2mm, breakable, opacitybacktitle=0.6, opacityback=0, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, toptitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Species Codes}, coltitle=black, arc=.35mm, leftrule=.75mm, colbacktitle=quarto-callout-note-color!10!white]
 
 Putting these codes into multiple similar projects can get a bit
 tiresome. It's not possible to make a ``standard'' translation between

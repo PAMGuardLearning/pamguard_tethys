@@ -17,7 +17,11 @@ date: last-modified
 #abstract-title: "Summary"
 #abstract: "this is the abstract which will be over several lines and will be over many lines and that should be fine #{{< pagebreak >}}"
 format:
-  pdf:
+  pdf:    
+    output-file: "PAMGuard-Tethys-Tutorial_1.2"
+    output-ext:  "pdf"
+    pdf-engine: xelatex
+    mainfont: Verdana
     margin-left: 1.25in
     margin-right: 1.25in
     margin-top: 1in
@@ -28,7 +32,7 @@ format:
     include-in-header:
       text: |
         \usepackage{scrlayer-scrpage}
-        \rohead{PAMGuard Tethys Tutorial V1.1}
+        \rohead{PAMGuard Tethys Tutorial V1.2}
         \usepackage[noblocks]{authblk}
         \renewcommand*{\Authsep}{, }
         \renewcommand*{\Authand}{ and }
@@ -47,7 +51,7 @@ format:
 #        "some text to include in the header"
     include-before-body:
       text: |
-        \centerline{\textbf{Tutorial Version 1.1}}
+        \centerline{\textbf{Tutorial Version 1.2}}
         \vspace{3cm}
 
 
@@ -106,15 +110,12 @@ You can carry out these exercises with any data you like, so long as you have it
 
 ### PAMGuard {#sec-installpamguard}
 
-This tutorial will work with [PAMGuard version 2.02.15 or later](https://www.pamguard.org/downloadsurvey.html), and [Tethys version 3.1](https://zenodo.org/records/13626338).
+This tutorial will work with [PAMGuard version 2.02.16 or later](https://www.pamguard.org/downloadsurvey.html), and [Tethys version 3.2 beta 2](https://tethys.sdsu.edu/install/).
 
-If you are running PAMGuard version 2.02.15 or earlier, you must enable Tethys in PAMGuard by specifying the -smru option as a command line option (@fig-smru) when you install PAMGuard.
-
-![Setting the -smru command line option during installation](./media/smruoption.png){#fig-smru width="70%"}
 
 ### Tethys
 
-Download [Tethys 3.1 from Zenodo](https://zenodo.org/records/13626338). Two databases are available, **demodb.zip** contains example output from other studies and will allow you to explore all Tethys functionality in full. The smaller **metadata.zip** contains only an empty database. We recommend that you use **demodb** for now, then switch to a blank database when you're ready to start serious work on your own data.
+Download [Tethys 3.2 beta 2 or later](https://tethys.sdsu.edu/install). Two databases are available, **demodb.zip** contains example output from other studies and will allow you to explore all Tethys functionality in full. The smaller **metadata.zip** contains only an empty database. We recommend that you use **demodb** for now, then switch to a blank database when you're ready to start serious work on your own data.
 
 ![Folder Structure of Tethys](media/tethysstructure.png){#fig-tethysstructure}
 

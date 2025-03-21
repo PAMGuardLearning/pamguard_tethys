@@ -1,0 +1,190 @@
+---
+title: "Batch Output to Tethys"
+bibliography: references.bib
+link-citations: true
+author: 
+  - name: Douglas Gillespie
+    affil-id: 1
+affiliations: 
+  - id: 1
+    name: Sea Mammal Research Unit, University of St Andrews
+date: last-modified
+format:
+  pdf:
+    output-file: "batch_output_to_tethys_1.2"
+    output-ext:  "pdf"
+    pdf-engine: xelatex
+    mainfont: Verdana
+    margin-left: 1.25in
+    margin-right: 1.25in
+    margin-top: 1in
+    margin-bottom: 1in
+    keep-tex: true
+    template-partials: 
+      - title.tex
+    include-in-header:
+      text: |
+        \pagenumbering{gobble}
+        \usepackage{scrlayer-scrpage}
+        \rohead{Batch Output to Tethys V1.2}
+        \usepackage[noblocks]{authblk}
+        \renewcommand*{\Authsep}{, }
+        \renewcommand*{\Authand}{ and }
+        \renewcommand*{\Authands}{, }
+        \renewcommand\Affilfont{\small}
+#      file: |
+#        - summary.qmd
+    toc: true
+    number-sections: true
+    colorlinks: true
+    fig-cap-location: bottom
+    tbl-cap-location: top   
+    dpi: 600 
+#    include-in-header: 
+#      text: |
+#        "some text to include in the header"
+    include-before-body:
+      text: |
+        \centerline{\textbf{Tutorial Version 1.2}}
+        \vspace{3cm}
+
+
+        \centerline{\textbf{Learning Outcomes}}
+        
+        In this tutorial you wil learn to output data from multiple PAMGuard datasets
+        to a Tethys database. The tutorial assumes that you are already familiar
+        with both Tethys and with the Batch Processing system. 
+
+#        \newpage
+---
+
+
+{{< pagebreak >}}
+
+\pagenumbering{arabic}
+\pagestyle{plain}
+
+# Prerequisites
+
+## Software Versions
+
+To run this tutorial you must have PAMGuard version 2.02.16 or later, the Batch Processing Plugin, Version 2.0 or later, and Tethys sever Version 3.2 beta 2 or later. The Tethys server
+must be running on your computer. If you don't have these, or don't know how to set them up, please complete the 
+[batch processing tutorial](https://www.pamguard.org/tutorials/batchprocessing.html), 
+and the full 
+PAMGuard Tethys tutorial available at [www.pamguard.org/tutorials/tethys.html](https://www.pamguard.org/tutorials/tethys.html). 
+
+## Sample Data
+
+The data you'll be using for this tutorial are the same data used for the Batch Processing tutorial
+available on [Zenodo](https://zenodo.org/records/14989668). These 
+come from a deployment of five SoundTrap 300 recorders off the
+West coast of Scotland, which form part of the [Compass Project](https://compass-oceanscience.eu/). 
+We've taken a single days data for each recorder since the full dataset would be
+too large for a tutorial exercise. 
+
+If you completed the batch processing tutorial using different data, feel free to use those data for this tutorial. 
+
+If you completed the Batch Processing Tutorial section on running offline tasks, you should have a Batch Processing
+display looking something like @fig-offconfig. 
+
+
+![Configuration display for controlling offline tasks as it should have looked at the end of the batch processing tutorial](images/offlineconfig.png){#fig-offconfig}
+
+# Setup Tethys
+
+Do NOT add a Tethys module to the batch processor configuration. Add it to the Batch processors *Run Configuration*. 
+To open the *Run Configuration* click on *Launch Configuration* near the top of the display, and a new 
+PAMGuard window will open. From the *File/Add Modules/Utilities* menu, add the Tethys module to the Run Configuration. 
+Check the Tethys server connection is OK, then close the Run Configuration. 
+
+
+::: {.callout-note appearance="default"}
+# Adding a Viewer only module
+
+Note that to add the Tethys module to your Run Configuration, you HAVE to open the run configuration from within
+the Batch Processor. This is because Tethys is normally only available in Viewer mode. Launching from the 
+batch processor will enable some additional options that allow a limited subset of Viewer functionality. 
+:::
+
+You don't need to do anything else to your Tethys settings here, and certainly don't attempt to export any data !
+Close the RunConfiguration and the Batch Processor Oflfine Tasks table will update with 9 addiontal 
+Tethys export tasks (@fig-withtethys).
+
+![Configuration display with the additional Tethys Export tasks when the Tethys module has 
+been successfully added to the Run Configuration](images/offlineconfigtethys.png){#fig-withtethys}
+
+## Check your Metadata
+
+When you completed the batch processor tutorial, you should have entered array / hydrophone specific data for each of the five
+datasets in the jobs table. If you didn't do that, you need to do it now, because this information is essential in managing
+the relationship between [PAMGuard datasets and Tethys documents](https://www.pamguard.org/olhelp/utilities/tethys/docs/tethys_mappings.html). 
+Above all, make sure that each dataset has a unique Instrument / Array identifier (@fig-instid) unless of course you're
+exporting multiple datasets from the same instrument, but collected at different times. 
+
+![Instrument / Array identification information in the Batch Jobs table](images/instid.png){#fig-instid width="45%"}
+
+
+## Configure the export tasks
+
+We want to export the following data for each or our batch datasets:
+
+* Calibration Data
+* Tethys Deployments
+* Whistle and Moan Detector contours
+* Sound Trap Click Detector, clicks
+
+Of course, if you're exporting data from a different PAMGuard configuration, then you'll be seeing a different list of possible export tasks. Select what you want, but you should always export Calibration and Deployment data before you export any Detections or Localisations. 
+
+You may find that you can't select all of these tasks, because some of the checkboxes to select those tasks are greyed out. 
+If a task is greyed out, then hovering the mouse over that task should display a message saying what's wrong, which usually means
+that the Tethys Server was not running, you've not provided required information for that export, or in the case of Detections have not 
+set up correct [ITIS species codes](https://www.pamguard.org/olhelp/utilities/tethys/docs/tethys_speciescodes.html). 
+For each
+task, click on the **Configure Task** button and enter the required data into the same Wizards that you'd have seen when you completed
+the Tethys Tutorial. Hopefully, you entered most of this information when you were completing the Batch Processing tutorial with this dataset. If not, 
+refer back to that tutorial and the [Compass website](https://compass-oceanscience.eu/) 
+ to find the data you need and enter it now. Once the required information have been collected you should be able to select the
+tasks you want to run. 
+
+When setting up the export options for the Whistles and Clicks, I suggest you export 10 minute bin counts for each type of detection and require a minimum of at least 10 sounds per bin. 
+
+Once you can select the check boxes for all five tasks we want to run, you're ready to start exporting 
+
+::: {.callout-note appearance="default"}
+# Configuration Differences
+
+Note that a lot the data you enter here is going to be exactly the same for every dataset that you export. Hopefully, this is a good thing, since if 
+all the data are from the same project, then the methods, abstracts, and other information should be the same. However, there may be a few 
+details, such as dates of calibrations, or there serial numbers of instruments used to calibrate your hydrophones which are not captured here. 
+
+If you're data genuinely ARE different, then you probably need to export the data from each set individually, or break it up into smaller sets for 
+batch processing of data that really are the same. 
+
+We always welcome suggests as to how to improve the options in the PAMGuard user interface. 
+
+:::
+
+# Run the tasks
+
+Assuming that you're using the batch configuration from your earlier work with the Batch Processing tutorial, all five jobs are probably marked as complete. Right click on the jobs table and select the menu item *Reprocess ALL jobs*. 
+
+Check the number of jobs you want to run concurrently (2 or 3 is probably good), then press the red Start button at the top of the PAMGuard display. As with other offline tasks, the Batch Processor module will launch PAMGuard configurations for each task, add the Tethys module, then run the tasks before slosing those configurations. 
+
+Running these export tasks on the given data should take about five minutes. 
+
+
+![Tethys Client showing the locations of the datasets exported during this tutorial](images/client.png){#fig-client width="95%"}
+
+# Look at the data
+
+Open the Tethys client Program (usually [http://localhost:9779/Client/html/query.html](http://localhost:9779/Client/html/query.html)). Enter the 
+Project Name as Compass and press the Deployment button near the bottom of the screen (@fig-client). Zoom in on the map to the West coast of Scotland and you should see five markers indicating the positions of the SoundTrap deployments. 
+
+Refer to the Tethys Documentation for other ways to look at the exported data using the Client, Data Explorer, R, and Matlab. 
+
+# Acknowlegements
+
+Funding for this work was provided by the United States [Bureau of Ocean Energy Management](https://www.boem.gov/) under contract 140M0122C0006 (University of Saint Andrews) and Cooperative Agreement M22AC00019-00 (San Diego State University).
+
+[![](media/BOEM_Logo_Web_Header.png){width="33%"}](https://www.boem.gov/)
